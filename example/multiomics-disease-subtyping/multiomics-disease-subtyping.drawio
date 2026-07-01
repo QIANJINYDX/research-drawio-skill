@@ -1,0 +1,1797 @@
+<mxfile host="app.diagrams.net" modified="2026-07-01T14:47:21Z" agent="Codex" version="24.7.17">
+  <diagram id="multiomics-disease-subtyping" name="Multi-omics disease subtyping">
+    <mxGraphModel dx="1720" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1720" pageHeight="920" math="1" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title-input" value="1. 多组学数据&lt;br&gt;(患者队列)" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#1F2933;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="270" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="title-preprocess" value="2. 预处理与&lt;br&gt;特征提取" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#1F2933;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="title-integration" value="3. 整合模型" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#1F2933;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="780" y="20" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="title-latent" value="4. 潜在表示&lt;br&gt;(UMAP-like)" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#1F2933;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="20" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="title-output" value="5. 临床输出" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#1F2933;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="20" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="module-input" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#EEF3F8;strokeColor=#D7E1EA;strokeWidth=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="0" y="90" width="430" height="760" as="geometry"/>
+        </mxCell>
+        <mxCell id="module-preprocess" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#EEF3F8;strokeColor=#D7E1EA;strokeWidth=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="450" y="100" width="270" height="740" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="140" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="52" y="140" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-0" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="150" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="150" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="150" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-1" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="160" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="160" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="52" y="160" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-2" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="170" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="170" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="170" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-3" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="180" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="180" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="52" y="180" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-4" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="190" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="190" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="190" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-5" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="200" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-a-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="200" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-base-b-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F7F9FC;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="52" y="200" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-link-6" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="210" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-rail-a" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=2;rotation=-18;" vertex="1" parent="1">
+          <mxGeometry x="10" y="140" width="20" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-icon-rail-b" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=2;rotation=18;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="20" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-label" value="&lt;b&gt;基因组学&lt;/b&gt;&lt;br&gt;突变 / CNV" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="90" y="140" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="120" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-body-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="246" y="134" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="278" y="120" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-body-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="134" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="306" y="120" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-body-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="302" y="134" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="120" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-body-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="134" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="362" y="120" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-body-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="358" y="134" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="120" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-patient-body-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="386" y="134" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-ellipsis" value="..." style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="420" y="120" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="150" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="150" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="150" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="150" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-1-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="150" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-2-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-3-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="210" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-3-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="210" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-3-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="210" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-3-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="210" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-3-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-3-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="210" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-4-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-4-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-4-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-tile-4-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-genomics-matrix-port" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;strokeWidth=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="200" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-icon-wave-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="324" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-icon-wave-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="23" y="314" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-icon-wave-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="36" y="304" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-icon-wave-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="49" y="314" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-icon-wave-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="62" y="324" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-label" value="&lt;b&gt;转录组学&lt;/b&gt;&lt;br&gt;基因表达" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="90" y="290" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="270" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-body-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="246" y="284" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="278" y="270" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-body-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="284" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="306" y="270" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-body-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="302" y="284" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="270" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-body-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="284" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="362" y="270" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-body-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="358" y="284" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="270" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-patient-body-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="386" y="284" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-ellipsis" value="..." style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="420" y="270" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="300" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="300" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="300" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="300" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="300" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-1-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="300" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-2-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-3-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="360" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-3-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="360" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-3-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="360" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-3-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="360" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-3-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-3-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="360" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-4-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-4-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-4-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-tile-4-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-transcriptomics-matrix-port" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;strokeWidth=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="350" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-0-1" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="442" width="30" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-1-2" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="452" width="-10" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-2-3" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="482" width="-30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-3-4" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="482" width="20" height="-20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-4-0" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="462" width="-10" height="-20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-4-1" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="462" width="20" height="-10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-link-4-2" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="462" width="10" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-node-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="22" y="434" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-node-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="52" y="444" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-node-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="42" y="474" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-node-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="12" y="474" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-icon-node-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="32" y="454" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-label" value="&lt;b&gt;蛋白质组学&lt;/b&gt;&lt;br&gt;蛋白丰度" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="90" y="440" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-body-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="246" y="434" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="278" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-body-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="434" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="306" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-body-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="302" y="434" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-body-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="434" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="362" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-body-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="358" y="434" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-patient-body-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="386" y="434" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-ellipsis" value="..." style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="420" y="420" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="450" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="450" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="450" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="450" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="450" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="450" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-1-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="450" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="480" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="480" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="480" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="480" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-2-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="480" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-3-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="510" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-3-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="510" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-3-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="510" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-3-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="510" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-3-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="510" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-3-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="510" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-4-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="540" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="540" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-4-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="540" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-4-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="540" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="540" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-tile-4-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="540" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-proteomics-matrix-port" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;strokeWidth=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="500" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-icon-bubble-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="22" y="610" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-icon-bubble-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="46" y="590" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-icon-bubble-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="72" y="614" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-icon-bubble-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="52" y="636" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-icon-bubble-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="18" y="640" width="18" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-icon-bubble-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="78" y="592" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-label" value="&lt;b&gt;代谢组学&lt;/b&gt;&lt;br&gt;代谢物丰度" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="90" y="590" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="570" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-body-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="246" y="584" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="278" y="570" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-body-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="584" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="306" y="570" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-body-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="302" y="584" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="570" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-body-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="584" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="362" y="570" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-body-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="358" y="584" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="570" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-patient-body-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="386" y="584" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-ellipsis" value="..." style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="420" y="570" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="600" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="600" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="600" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="600" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="600" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="600" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-1-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="600" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-2-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-3-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="660" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-3-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="660" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-3-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="660" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-3-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="660" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-3-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="660" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-3-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="660" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-4-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-4-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-4-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-tile-4-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-metabolomics-matrix-port" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;strokeWidth=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="650" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-board" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F7FBFF;strokeColor=#0F4D92;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="740" width="60" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-clip" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="35" y="730" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-row-0" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-dot-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="758" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-row-1" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="770" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-dot-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="768" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-row-2" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="780" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-dot-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="778" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-row-3" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-dot-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="788" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-row-4" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="800" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-dot-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="798" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-row-5" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="810" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-icon-dot-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="808" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-label" value="&lt;b&gt;临床数据&lt;/b&gt;&lt;br&gt;表型 / 人口学" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="90" y="740" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="720" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-body-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="246" y="734" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="278" y="720" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-body-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="734" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="306" y="720" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-body-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="302" y="734" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="720" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-body-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="734" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="362" y="720" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-body-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="358" y="734" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="720" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-patient-body-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8D949A;strokeColor=#8D949A;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="386" y="734" width="22" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-ellipsis" value="..." style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="420" y="720" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="750" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="750" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="750" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="750" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="750" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="750" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-1-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="750" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="780" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="780" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="780" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="780" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="780" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-2-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="780" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-3-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="810" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-3-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="810" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-3-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="810" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-3-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="810" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-3-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="810" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-3-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="810" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-4-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-4-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-4-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E4EAF0;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-tile-4-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="840" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-input-clinical-matrix-port" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;strokeWidth=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="800" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="470" y="120" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-label" value="&lt;b&gt;QC 与标准化&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="490" y="130" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-curve-0" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=1.6;rotation=-58;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-curve-1" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=1.6;rotation=-20;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-curve-2" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=1.6;rotation=30;" vertex="1" parent="1">
+          <mxGeometry x="550" y="190" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-curve-dashed-0" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=1.2;rotation=-58;" vertex="1" parent="1">
+          <mxGeometry x="540" y="200" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-curve-dashed-1" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=1.2;rotation=-20;" vertex="1" parent="1">
+          <mxGeometry x="560" y="180" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-curve-dashed-2" value="" style="shape=line;html=1;strokeColor=#0F4D92;strokeWidth=1.2;rotation=30;" vertex="1" parent="1">
+          <mxGeometry x="580" y="190" width="20" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-internal-arrow" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1.2;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="580" y="180" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-featurecol-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="190" width="8" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-featurecol-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="170" width="8" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-featurecol-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="650" y="180" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-featurecol-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="660" y="150" width="8" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-genomics-featurecol-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="470" y="270" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-label" value="&lt;b&gt;QC 与标准化&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="490" y="280" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="310" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="310" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="310" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CDB8DD;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="540" y="310" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="310" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="310" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="330" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CDB8DD;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="330" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="540" y="330" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="330" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-miniheat-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="330" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-internal-arrow" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1.2;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="580" y="330" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-featurecol-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="340" width="8" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-featurecol-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="320" width="8" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-featurecol-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="650" y="330" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-featurecol-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="660" y="300" width="8" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-transcriptomics-featurecol-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="330" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="470" y="420" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-label" value="&lt;b&gt;QC 与标准化&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="490" y="430" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-0-1" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="460" width="30" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-1-2" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="470" width="-10" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-2-3" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="500" width="-30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-3-4" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="500" width="20" height="-20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-4-0" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="480" width="-10" height="-20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-4-1" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="480" width="20" height="-10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-link-4-2" value="" style="shape=line;html=1;strokeColor=#8FC6C4;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="480" width="10" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-node-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="512" y="452" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-node-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="542" y="462" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-node-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="532" y="492" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-node-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="502" y="492" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-network-node-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="522" y="472" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-internal-arrow" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1.2;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="580" y="480" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-featurecol-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="490" width="8" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-featurecol-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="470" width="8" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-featurecol-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="650" y="480" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-featurecol-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#148D89;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="660" y="450" width="8" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-proteomics-featurecol-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="480" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="470" y="570" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-label" value="&lt;b&gt;QC 与标准化&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="490" y="580" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-curve-0" value="" style="shape=line;html=1;strokeColor=#F47C20;strokeWidth=1.6;rotation=-58;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-curve-1" value="" style="shape=line;html=1;strokeColor=#F47C20;strokeWidth=1.6;rotation=-20;" vertex="1" parent="1">
+          <mxGeometry x="520" y="630" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-curve-2" value="" style="shape=line;html=1;strokeColor=#F47C20;strokeWidth=1.6;rotation=30;" vertex="1" parent="1">
+          <mxGeometry x="550" y="640" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-curve-dashed-0" value="" style="shape=line;html=1;strokeColor=#F47C20;strokeWidth=1.2;rotation=-58;" vertex="1" parent="1">
+          <mxGeometry x="540" y="650" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-curve-dashed-1" value="" style="shape=line;html=1;strokeColor=#F47C20;strokeWidth=1.2;rotation=-20;" vertex="1" parent="1">
+          <mxGeometry x="560" y="630" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-curve-dashed-2" value="" style="shape=line;html=1;strokeColor=#F47C20;strokeWidth=1.2;rotation=30;" vertex="1" parent="1">
+          <mxGeometry x="580" y="640" width="20" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-internal-arrow" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1.2;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="580" y="630" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-featurecol-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="640" width="8" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-featurecol-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="620" width="8" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-featurecol-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="650" y="630" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-featurecol-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="660" y="600" width="8" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-metabolomics-featurecol-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="630" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#EDF4FB;strokeColor=#0F4D92;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="470" y="720" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-label" value="&lt;b&gt;编码与缺失填补&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="490" y="730" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-board" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F7FBFF;strokeColor=#0F4D92;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="510" y="760" width="60" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-clip" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="525" y="750" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-row-0" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="780" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-dot-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="778" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-row-1" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="790" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-dot-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="788" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-row-2" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="800" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-dot-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="798" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-row-3" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="810" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-dot-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="808" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-row-4" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="820" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-dot-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="818" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-row-5" value="" style="shape=line;html=1;strokeColor=#9EB8D3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="830" width="30" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-clip-dot-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="828" width="4" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-internal-arrow" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1.2;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="580" y="780" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-featurecol-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="790" width="8" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-featurecol-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="770" width="8" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-featurecol-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="650" y="780" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-featurecol-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="660" y="750" width="8" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-preprocess-clinical-featurecol-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="780" width="8" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="800" y="310" width="260" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-title" value="&lt;b&gt;多组学融合模型&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="840" y="330" width="180" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="370" width="60" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="370" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="370" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="370" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="370" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="385" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="385" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="385" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-0-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="385" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-stream-0" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="890" y="390" width="40" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="410" width="60" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="410" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="410" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="410" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="410" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="425" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="425" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="425" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-1-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A4EA3;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="425" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-stream-1" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="890" y="430" width="40" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="450" width="60" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="450" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="450" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="450" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="450" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="465" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="465" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="465" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-2-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#148D89;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="465" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-stream-2" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="890" y="470" width="40" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="490" width="60" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="490" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="490" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="490" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="490" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="505" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="505" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="505" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-3-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F47C20;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="505" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-stream-3" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="890" y="510" width="40" height="-10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="530" width="60" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="530" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="530" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="530" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="530" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="545" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="835" y="545" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D7E1EA;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="545" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-omicsstack-4-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="545" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-stream-4" value="" style="shape=line;html=1;strokeColor=#4D5E6E;strokeWidth=1;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="890" y="550" width="40" height="-20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l0-n0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="930" y="390" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l0-n1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="930" y="440" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l0-n2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="930" y="490" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l0-n3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="930" y="540" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l1-n0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="970" y="400" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l1-n1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="970" y="450" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l1-n2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="970" y="500" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l2-n0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="410" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-l2-n1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D9D9D9;strokeColor=#555555;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="460" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-0-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="400" width="20" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-0-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="400" width="20" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-0-2" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="400" width="20" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-1-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="450" width="20" height="-40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-1-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="450" width="20" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-1-2" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="450" width="20" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-2-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="500" width="20" height="-90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-2-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="500" width="20" height="-40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-2-2" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="500" width="20" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-3-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="550" width="20" height="-140" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-3-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="550" width="20" height="-90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-0-3-2" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="550" width="20" height="-40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-1-0-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="410" width="20" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-1-0-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="410" width="20" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-1-1-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="460" width="20" height="-40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-1-1-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="460" width="20" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-1-2-0" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="510" width="20" height="-90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-network-link-1-2-1" value="" style="shape=line;html=1;strokeColor=#B8B8B8;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="510" width="20" height="-40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-integration-caption" value="共享潜在空间&lt;br&gt;Deep neural network / Graph" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="830" y="550" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#FFFFFF;strokeColor=#8D949A;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="250" width="260" height="450" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-yaxis" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1.4;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="550" width="0" height="-250" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-xaxis" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1.4;endArrow=block;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="550" width="210" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="308" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="302" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="316" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="332" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1226" y="332" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1248" y="344" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="350" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1298" y="362" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-8" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1218" y="368" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-9" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1242" y="380" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1266" y="388" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-11" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1293" y="395" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-12" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1234" y="408" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-13" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="420" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-14" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1283" y="416" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-15" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1308" y="424" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-16" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1223" y="440" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-17" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1251" y="452" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-18" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="448" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-a-point-19" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1302" y="462" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1193" y="460" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1216" y="452" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1236" y="466" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="484" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1204" y="490" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="500" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1252" y="488" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1186" y="518" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-8" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="528" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-9" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="528" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1198" y="555" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-11" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1224" y="556" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-12" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1248" y="546" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-13" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1176" y="546" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-14" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1218" y="580" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-b-point-15" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1244" y="576" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1314" y="474" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1336" y="466" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1352" y="488" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1296" y="500" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1322" y="508" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1348" y="514" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1368" y="532" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="542" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-8" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="546" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-9" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1358" y="556" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1312" y="582" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-11" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="576" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-12" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1366" y="588" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-13" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1326" y="610" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-subtype-c-point-14" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1354" y="608" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-legend-a-dot" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#2E86DE;strokeColor=#2E86DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1202" y="590" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-legend-a" value="亚型 A" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="580" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-legend-b-dot" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1202" y="624" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-legend-b" value="亚型 B" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="620" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-legend-c-dot" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1202" y="658" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-latent-legend-c" value="亚型 C" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="650" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="130" width="220" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-title" value="&lt;b&gt;亚型标志物&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="150" width="160" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-cols" value="A      B      C" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="190" width="130" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-left-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="222" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-right-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1532" y="222" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-left-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1522" y="232" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-right-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="232" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-left-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="242" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-right-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1532" y="242" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-left-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EAF2FB;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1522" y="252" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-dna-right-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="252" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-rna-dot-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="272" width="9" height="9" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-rna-dot-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1518" y="262" width="9" height="9" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-rna-dot-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1526" y="252" width="9" height="9" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-rna-dot-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1534" y="262" width="9" height="9" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-rna-dot-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#EFE7F5;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1542" y="272" width="9" height="9" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-protein-node-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1512" y="312" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-protein-node-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1538" y="312" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-protein-node-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1524" y="332" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-protein-node-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="346" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-protein-node-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8F5F4;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1542" y="346" width="10" height="10" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-metabolite-dot-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1512" y="382" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-metabolite-dot-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1538" y="382" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-metabolite-dot-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFF1E5;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1524" y="402" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-metabolite-dot-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="418" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-metabolite-dot-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#F47C20;strokeColor=#F47C20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1542" y="418" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9AA9B5;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="220" width="120" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B64342;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="220" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-1-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6D9D9;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1584" y="220" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDF4F4;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="220" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-1-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6E6F7;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1632" y="220" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-1-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9BC3EC;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1656" y="220" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6D9D9;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="244" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8F8F8;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1584" y="244" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="244" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8DDF4;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1632" y="244" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#7FB0E4;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1656" y="244" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-3-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="268" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-3-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B64342;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1584" y="268" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-3-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6D9D9;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="268" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-3-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDF4F4;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1632" y="268" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-3-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#AAD0EF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1656" y="268" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-4-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B64342;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="292" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F6D9D9;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1584" y="292" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-4-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F2F2F2;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="292" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-4-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1632" y="292" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-4-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8DBAE6;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1656" y="292" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-5-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BDD7EE;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="316" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-5-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D5E5F5;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1584" y="316" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-5-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="316" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-5-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1632" y="316" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-heatmap-tile-5-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B7D2EF;strokeColor=#9AA9B5;strokeWidth=0.8;" vertex="1" parent="1">
+          <mxGeometry x="1656" y="316" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-biomarkers-caption" value="每个亚型的&lt;br&gt;特征签名" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="380" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontColor=#1F2933;fontFamily=Arial;fontSize=12;spacing=8;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="500" width="220" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-title" value="&lt;b&gt;治疗反应&lt;/b&gt;" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=15;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="520" width="160" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-ylabel" value="Response rate&lt;br&gt;响应率" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=10;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="600" width="50" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-yaxis" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="690" width="0" height="-140" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-xaxis" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="690" width="140" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tick-0" value="100%" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=10;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="540" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tickline-0" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="550" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tick-1" value="75%" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=10;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="570" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tickline-1" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="580" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tick-2" value="50%" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=10;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="610" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tickline-2" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="620" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tick-3" value="25%" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=10;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="640" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tickline-3" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="650" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tick-4" value="0%" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=10;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="680" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-tickline-4" value="" style="shape=line;html=1;strokeColor=#111111;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="690" width="10" height="0" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-rate-column-A" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F4D92;strokeColor=#0F4D92;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1570" y="600" width="30" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-label-A" value="A" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1570" y="700" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-rate-column-B" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#7A4EA3;strokeColor=#7A4EA3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="640" width="30" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-label-B" value="B" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="700" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-rate-column-C" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#148D89;strokeColor=#148D89;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="590" width="30" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-label-C" value="C" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="700" width="30" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="node-response-caption" value="预测治疗获益&lt;br&gt;按疾病亚型分层" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=12;fontColor=#1F2933;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="730" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-input-genomics-preprocess" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#0F4D92;" edge="1" parent="1" source="node-input-genomics-matrix-port" target="node-preprocess-genomics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-preprocess-genomics-integration" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#0F4D92;" edge="1" parent="1" source="node-preprocess-genomics" target="node-integration">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="170"/>
+              <mxPoint x="750" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-input-transcriptomics-preprocess" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#7A4EA3;" edge="1" parent="1" source="node-input-transcriptomics-matrix-port" target="node-preprocess-transcriptomics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-preprocess-transcriptomics-integration" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#7A4EA3;" edge="1" parent="1" source="node-preprocess-transcriptomics" target="node-integration">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="320"/>
+              <mxPoint x="750" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-input-proteomics-preprocess" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#148D89;" edge="1" parent="1" source="node-input-proteomics-matrix-port" target="node-preprocess-proteomics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-preprocess-proteomics-integration" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#148D89;" edge="1" parent="1" source="node-preprocess-proteomics" target="node-integration">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="470"/>
+              <mxPoint x="750" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-input-metabolomics-preprocess" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#F47C20;" edge="1" parent="1" source="node-input-metabolomics-matrix-port" target="node-preprocess-metabolomics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-preprocess-metabolomics-integration" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#F47C20;" edge="1" parent="1" source="node-preprocess-metabolomics" target="node-integration">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="620"/>
+              <mxPoint x="750" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-input-clinical-preprocess" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#0F4D92;" edge="1" parent="1" source="node-input-clinical-matrix-port" target="node-preprocess-clinical">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-preprocess-clinical-integration" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#0F4D92;" edge="1" parent="1" source="node-preprocess-clinical" target="node-integration">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="770"/>
+              <mxPoint x="750" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-integration-latent" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#111111;" edge="1" parent="1" source="node-integration" target="node-latent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-latent-biomarkers" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#111111;" edge="1" parent="1" source="node-latent" target="node-biomarkers">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="460"/>
+              <mxPoint x="1440" y="290"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-latent-response" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=1.4;strokeColor=#111111;" edge="1" parent="1" source="node-latent" target="node-response">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="460"/>
+              <mxPoint x="1440" y="650"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -51,10 +51,31 @@ build/
 *.drawio.bkp
 *.drawio.dtmp
 
+# Keep README example preview images versioned.
+!example/**/exports/
+!example/**/exports/**
+example/exports/
+
+# Keep only README-facing strict-comparison evidence in Git.
+example/**/comparison*/
+example/**/comparison*/**
+example/**/side-by-side.png
+example/**/foreground-overlay.png
+!example/gan-handwritten-digits/comparison-final/
+!example/gan-handwritten-digits/comparison-final/side-by-side.png
+!example/gan-handwritten-digits/comparison-final/diff-heatmap.png
+!example/gan-handwritten-digits/comparison-final/foreground-overlay.png
+!example/gan-handwritten-digits/comparison-final/comparison-report.json
+!example/resnet_cat_dog_classification/comparison_iter3/
+!example/resnet_cat_dog_classification/comparison_iter3/diff-heatmap.png
+!example/unet-medical-segmentation/comparison-iter5/
+!example/unet-medical-segmentation/comparison-iter5/diff-heatmap.png
+!example/multiomics-disease-subtyping/comparison-iter3/
+!example/multiomics-disease-subtyping/comparison-iter3/diff-heatmap.png
+
 # Archives and large local bundles
 *.zip
 *.tar
 *.tar.gz
 *.7z
 *.rar
-

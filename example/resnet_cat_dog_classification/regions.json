@@ -1,0 +1,6 @@
+[
+  {"name":"Input images","bbox":[20,137,230,578]},
+  {"name":"Preprocessing","bbox":[290,137,205,578]},
+  {"name":"ResNet feature extractor","bbox":[530,95,940,650]},
+  {"name":"Classifier output","bbox":[1520,137,230,590]}
+]

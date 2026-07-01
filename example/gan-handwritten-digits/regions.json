@@ -1,0 +1,9 @@
+[
+  {"name": "Latent noise", "bbox": [40, 270, 210, 345]},
+  {"name": "Generator", "bbox": [315, 260, 420, 375]},
+  {"name": "Generated digits", "bbox": [795, 305, 250, 285]},
+  {"name": "Real digits", "bbox": [1085, 45, 205, 235]},
+  {"name": "Discriminator", "bbox": [1120, 330, 335, 290]},
+  {"name": "Probability score", "bbox": [1505, 395, 170, 205]},
+  {"name": "Loss feedback", "bbox": [520, 600, 900, 245]}
+]

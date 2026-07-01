@@ -2,8 +2,14 @@
 
 **Language:** English | [中文](README.zh-CN.md)
 
-`research-drawio-skill` is a Codex skill for creating publication-style
-scientific flowcharts and schematic workflows in diagrams.net / draw.io.
+`research-drawio-skill` is a Codex skill suite for creating publication-style
+scientific schematics in diagrams.net / draw.io.
+
+The recommended two-stage entry point is `research-draw`: it first creates or
+uses a polished raster reference image, then traces that reference into an
+editable `.drawio` diagram with `research-drawio-skill`. Use
+`research-drawio-skill` directly when you already know the diagram structure or
+only need to create, revise, audit, export, or QA a draw.io source file.
 
 The skill is designed for research-paper figures such as method pipelines,
 experimental workflows, cohort flow diagrams, mechanism schematics,
@@ -22,82 +28,129 @@ Recent design rules also prevent three common failure modes: labels covering
 glyph primitives, decorative chart glyphs without scientific meaning, and
 over-routed connector paths with unnecessary bends.
 
+Two companion skills are included: `research-draw` for image-generation-to-
+draw.io tracing, and `add-svg` for supplementing draw.io diagrams with SVG
+scientific assets. `add-svg` forces a source choice before every run: collect
+multiple online SVG candidates for later user selection, or create restrained
+original SVGs when network assets are unsuitable or unavailable.
+
 ## What It Helps With
 
 - Editable `.drawio` scientific workflow diagrams
+- Two-stage scientific figure creation: generated reference image, then
+  editable draw.io tracing
 - Nature-style method and experimental design flowcharts
 - Computational pipeline and model architecture schematics
 - Cohort/study flow diagrams with inclusion and exclusion logic
 - Mechanism and graphical abstract diagrams for manuscripts
 - SVG/PDF-ready publication exports with QA-oriented guidance
 
-## Repository Structure
+## Examples
+
+### GAN Handwritten Digit Generation
+
+`example/gan-handwritten-digits/gan-handwritten-digits.drawio` demonstrates the
+two-stage `research-draw` workflow: create a raster scientific reference image,
+redraw it as editable draw.io primitives, export the draw.io preview, then run
+strict visual comparison for multiple iterations.
+
+Input used in Codex:
 
 ```text
-.
-|-- README.md
-|-- README.zh-CN.md
-|-- .gitignore
-|-- example/
-|   `-- attention-mechanism-nature.drawio
-`-- skills/
-    `-- research-drawio-skill/
-        |-- SKILL.md
-        |-- manifest.yaml
-        |-- agents/
-        |   `-- openai.yaml
-        |-- scripts/
-        |   `-- qa_drawio.py
-        |-- static/
-        |   `-- core/
-        |       |-- contract.md
-        |       `-- stance.md
-        `-- references/
-            |-- archetypes.md
-            |-- composite-elements.md
-            |-- drawio-authoring.md
-            |-- layout-and-routing.md
-            |-- math-typesetting.md
-            |-- qa-contract.md
-            `-- style-guide.md
+使用$research-draw 帮我绘制一个使用GAN进行手写数字生成的图，科研风格
 ```
 
-The actual skill lives in `skills/research-drawio-skill/`. The root README is
-only for GitHub presentation and installation guidance.
+Reference image:
 
-## Example
+![GAN handwritten digit reference](assets/reference-images/gan-handwritten-digits-reference.png)
 
-`example/attention-mechanism-nature.drawio` is an editable Nature-style attention
-mechanism schematic created with this skill. It shows how input token embeddings
-are projected into query, key, and value vectors; how scaled dot-product scores
-are normalized into attention weights; and how value vectors are pooled into
-context-aware token representations.
+Skill execution flow:
 
-This example is intentionally useful as a QA target while the skill evolves:
-newer versions of the skill include stricter checks for alignment, connector
-occlusion, and formula rendering.
+1. `research-draw` established the scientific message, topology, visual
+   vocabulary, output contract, and consistency-loop requirement.
+2. `imagegen` produced the raster reference image used only as a composition and
+   geometry guide.
+3. `research-drawio-skill` rebuilt the figure as editable draw.io modules:
+   latent-noise table, generator layers, generated and real digit tiles,
+   discriminator layers, probability mini-chart, and dashed loss-feedback route.
+4. `qa_drawio.py` checked the `.drawio` source. Result:
+   `OK XML parsed; vertices=99 edges=16 warnings=0`.
+5. `export_drawio_preview.py` exported PNG and SVG previews with draw.io Desktop
+   CLI.
+6. `compare_drawio_reference.py` ran strict raster comparison for three recorded
+   iterations, producing metrics, tile mismatch CSVs, region mismatch CSVs,
+   heatmaps, foreground overlays, and side-by-side images.
+
+Final editable output preview:
+
+![GAN handwritten digit draw.io output](example/gan-handwritten-digits/exports/gan-handwritten-digits.png)
+
+Strict comparison evidence:
+
+![GAN strict comparison side by side](example/gan-handwritten-digits/comparison-final/side-by-side.png)
+
+Pixel-difference heatmap:
+
+![GAN strict comparison diff heatmap](example/gan-handwritten-digits/comparison-final/diff-heatmap.png)
+
+Foreground overlap audit:
+
+![GAN strict comparison foreground overlay](example/gan-handwritten-digits/comparison-final/foreground-overlay.png)
+
+Final artifacts:
+
+- Editable source:
+  `example/gan-handwritten-digits/gan-handwritten-digits.drawio`
+- PNG preview:
+  `example/gan-handwritten-digits/exports/gan-handwritten-digits.png`
+- SVG preview:
+  `example/gan-handwritten-digits/exports/gan-handwritten-digits.svg`
+- Trace notes:
+  `example/gan-handwritten-digits/trace-notes.md`
+- Strict comparison report:
+  `example/gan-handwritten-digits/comparison-final/comparison-report.json`
+
+Final strict-comparison status is `not passed`: the worst remaining mismatch is
+the `Real digits` region, and the final strict metrics are `mae=17.6241`,
+`ssim=0.7582`, `foreground_iou=0.7678`, `edge_iou=0.0764`, and
+`worst_tile_mae=105.0931`. The example keeps those QA artifacts visible so the
+remaining mismatch can be inspected rather than treated as a completed pixel
+match.
+
+## More Examples
+
+| Prompt | GPT-generated image | Pixel-difference heatmap | draw.io output |
+|---|---|---|---|
+| 使用$research-draw 帮我绘制一个使用GAN进行手写数字生成的图，科研风格 | <img src="assets/reference-images/gan-handwritten-digits-reference.png" alt="GAN reference" width="180"> | <img src="example/gan-handwritten-digits/comparison-final/diff-heatmap.png" alt="GAN diff heatmap" width="180"> | <img src="example/gan-handwritten-digits/exports/gan-handwritten-digits.png" alt="GAN draw.io output" width="180"> |
+| 使用$research-draw 帮我绘制一个使用ResNet进行猫狗图像分类的图，科研风格 | <img src="example/resnet_cat_dog_classification/resnet_cat_dog_reference.png" alt="ResNet cat dog reference" width="180"> | <img src="example/resnet_cat_dog_classification/comparison_iter3/diff-heatmap.png" alt="ResNet cat dog diff heatmap" width="180"> | <img src="example/resnet_cat_dog_classification/exports/resnet_cat_dog_classification.png" alt="ResNet cat dog draw.io output" width="180"> |
+| 使用$research-draw 帮我绘制一个使用Transformer进行机器翻译的图，科研风格 | <img src="example/transformer_machine_translation_reference.png" alt="Transformer reference" width="180"> | <img src="example/transformer_machine_translation/diff-heatmap.png" alt="Transformer diff heatmap" width="180"> | <img src="example/transformer_machine_translation/exports/transformer_machine_translation.png" alt="Transformer draw.io output" width="180"> |
+| 使用$research-draw 帮我绘制一个使用U-Net进行医学图像分割的图，科研风格 | <img src="example/unet-medical-segmentation/reference-unet-medical-segmentation.png" alt="U-Net medical segmentation reference" width="180"> | <img src="example/unet-medical-segmentation/comparison-iter5/diff-heatmap.png" alt="U-Net medical segmentation diff heatmap" width="180"> | <img src="example/unet-medical-segmentation/exports/unet-medical-segmentation.png" alt="U-Net medical segmentation draw.io output" width="180"> |
+| 使用$research-draw 帮我绘制一个使用多组学数据整合进行疾病分型的图，科研风格 | <img src="example/multiomics-disease-subtyping/multiomics-disease-subtyping-reference.png" alt="Multi-omics disease subtyping reference" width="180"> | <img src="example/multiomics-disease-subtyping/comparison-iter3/diff-heatmap.png" alt="Multi-omics disease subtyping diff heatmap" width="180"> | <img src="example/multiomics-disease-subtyping/exports/multiomics-disease-subtyping.png" alt="Multi-omics disease subtyping draw.io output" width="180"> |
 
 ## Installation
 
-Copy the skill folder into your Codex skills directory:
+Copy the skill folders you want into your Codex skills directory. For the full
+workflow, install all three:
 
 ```powershell
 Copy-Item -Recurse -Force `
+  "skills\research-draw" `
+  "$env:USERPROFILE\.codex\skills\research-draw"
+
+Copy-Item -Recurse -Force `
   "skills\research-drawio-skill" `
   "$env:USERPROFILE\.codex\skills\research-drawio-skill"
+
+Copy-Item -Recurse -Force `
+  "skills\add-svg" `
+  "$env:USERPROFILE\.codex\skills\add-svg"
 ```
 
 On macOS or Linux:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R skills/research-drawio-skill ~/.codex/skills/research-drawio-skill
-```
-
-Then invoke it in Codex with:
-
-```text
-Use $research-drawio-skill to create an editable paper-style draw.io workflow diagram.
+cp -R skills/{research-draw,research-drawio-skill,add-svg} ~/.codex/skills/
 ```
 
 ## Design Philosophy
@@ -124,6 +177,26 @@ Every diagram starts with:
 
 ## Skill Contents
 
+`research-draw`:
+
+- `SKILL.md`: main trigger metadata and routing protocol for the two-stage
+  generate-then-trace workflow.
+- `agents/openai.yaml`: UI metadata and default prompt for invoking the skill.
+- `references/two-stage-workflow.md`: stage contract for reference generation,
+  draw.io tracing, and completion criteria.
+- `references/imagegen-reference-stage.md`: prompt and inspection rules for
+  generating a clean scientific reference image.
+- `references/png-layout-extraction.md`: geometry extraction rules for tracing
+  an existing raster figure.
+- `references/drawio-tracing-stage.md`: conversion rules from raster reference
+  to editable draw.io modules, glyphs, labels, formulas, and connectors.
+- `references/complex-asset-sourcing.md`: policy for online SVG/vector assets
+  or self-designed fallbacks for complex recognizable objects.
+- `references/consistency-loop.md`: iterative export, strict comparison, and
+  repair loop before delivery.
+
+`research-drawio-skill`:
+
 - `SKILL.md`: main trigger metadata and routing protocol.
 - `manifest.yaml`: declares always-loaded core files and on-demand references.
 - `static/core/contract.md`: required flowchart contract before drawing.
@@ -139,24 +212,36 @@ Every diagram starts with:
 - `references/style-guide.md`: typography, color, shape, connector, and draw.io
   style presets.
 - `references/drawio-authoring.md`: `.drawio` / mxGraph XML authoring guidance.
+- `references/export-preview.md`: draw.io Desktop CLI export and preview QA.
+- `references/strict-visual-comparison.md`: quantitative comparison between a
+  raster/GPT/imagegen reference and exported draw.io PNG.
 - `references/qa-contract.md`: logic, visual, source-file, and export QA checks.
-- `scripts/qa_drawio.py`: lightweight XML, math, alignment, endpoint,
-  text/glyph overlap, chart-glyph semantics, bend-count, and
-  connector-through-node QA.
+- `scripts/qa_drawio.py`: lightweight uncompressed/compressed draw.io XML, math,
+  alignment, endpoint, text/glyph overlap, label-length, canvas-bound,
+  chart-glyph semantics, bend-count, and connector-through-node QA.
+- `scripts/export_drawio_preview.py`: exports PNG/SVG/PDF previews through the
+  local diagrams.net/draw.io Desktop CLI and probes the output.
+- `scripts/compare_drawio_reference.py`: compares a draw.io PNG export against a
+  raster reference and writes metrics, mismatch tiles, and visual overlays.
 
-## Example Prompts
+`add-svg`:
 
-```text
-Use $research-drawio-skill to draw a Nature-style method workflow for my single-cell analysis pipeline.
-```
-
-```text
-Use $research-drawio-skill to convert this manuscript methods paragraph into an editable draw.io experimental workflow.
-```
-
-```text
-Use $research-drawio-skill to audit and polish this .drawio mechanism schematic for a paper figure.
-```
+- `SKILL.md`: source-gated routing protocol for adding SVG assets.
+- `manifest.yaml`: declares the mandatory source gate and mode-specific
+  references.
+- `static/core/contract.md`: SVG addition contract, including scientific role,
+  integration targets, provenance, fallback, and QA notes.
+- `static/core/stance.md`: Nature-style stance for restrained, meaningful SVG
+  additions.
+- `references/network-svg-search.md`: procedure for collecting multiple online
+  SVG candidates with source and license notes.
+- `references/self-design-svg.md`: rules for original SVG glyphs built from
+  simple vector primitives.
+- `references/drawio-svg-integration.md`: draw.io image-cell, data URI, label,
+  placement, and storage guidance.
+- `references/svg-qa-contract.md`: source, visual, draw.io, and delivery QA.
+- `scripts/svg_data_uri.py`: converts a local SVG file into a draw.io-compatible
+  data URI or image style fragment.
 
 ## Validation
 
@@ -165,7 +250,13 @@ If you have the Codex `skill-creator` validation script available, run:
 ```powershell
 $env:PYTHONUTF8 = "1"
 python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" `
+  "skills\research-draw"
+
+python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" `
   "skills\research-drawio-skill"
+
+python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" `
+  "skills\add-svg"
 ```
 
 Expected result:
@@ -180,8 +271,24 @@ Chinese trigger phrases.
 To inspect a generated `.drawio` file:
 
 ```powershell
-python "skills\research-drawio-skill\scripts\qa_drawio.py" "example\attention-mechanism-nature.drawio"
+python "skills\research-drawio-skill\scripts\qa_drawio.py" `
+  "example\gan-handwritten-digits\gan-handwritten-digits.drawio"
 ```
 
-Warnings should be reviewed before using a diagram as a polished example or
-publication-facing export.
+```powershell
+python "skills\research-drawio-skill\scripts\export_drawio_preview.py" `
+  "example\gan-handwritten-digits\gan-handwritten-digits.drawio" `
+  --formats png svg
+```
+
+```powershell
+python "skills\research-drawio-skill\scripts\compare_drawio_reference.py" `
+  "assets\reference-images\gan-handwritten-digits-reference.png" `
+  "example\gan-handwritten-digits\exports\gan-handwritten-digits.png" `
+  --mode strict `
+  --regions-json "example\gan-handwritten-digits\regions.json" `
+  --out-dir "example\gan-handwritten-digits\comparison-final"
+```
+
+Warnings and strict comparison failures should be reviewed before using a
+diagram as a polished example or publication-facing export.

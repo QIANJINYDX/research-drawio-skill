@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
-"""Lightweight QA for uncompressed diagrams.net/draw.io files.
+"""Lightweight QA for diagrams.net/draw.io files.
 
-Checks XML validity, graph math flag, grid alignment, edge endpoints, and
-obvious connector-through-node intersections. This is intentionally conservative:
-it catches common layout mistakes but does not replace visual inspection in
+Checks XML validity, graph math flag, grid alignment, edge endpoints, label
+length, text/glyph overlap, canvas bounds, and obvious connector-through-node
+intersections. Uncompressed diagrams are preferred, but compressed diagrams.net
+payloads are decoded when possible. This is intentionally conservative: it
+catches common layout mistakes but does not replace visual inspection in
 diagrams.net.
 """
 
 from __future__ import annotations
 
 import argparse
+import base64
+import html
 import math
 import re
 import sys
+import urllib.parse
 import xml.etree.ElementTree as ET
+import zlib
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -21,6 +27,11 @@ from pathlib import Path
 FORMULA_RE = re.compile(
     r"(\\\(|\\\[|\$\$|`[^`]+`|\\sqrt|sqrt\(|softmax|\\mathrm|\^[A-Za-z0-9{]|_[A-Za-z0-9{])"
 )
+TAG_RE = re.compile(r"<[^>]+>")
+MAX_NODE_LABEL_CHARS = 86
+MAX_TEXT_LABEL_CHARS = 150
+MAX_EDGE_LABEL_CHARS = 34
+RAW_SVG_BASE64_RE = re.compile(r"image=data:image/svg\+xml;base64,", re.IGNORECASE)
 
 
 @dataclass
@@ -41,6 +52,20 @@ class Box:
     def cy(self) -> float:
         return self.y + self.h / 2
 
+    @property
+    def right(self) -> float:
+        return self.x + self.w
+
+    @property
+    def bottom(self) -> float:
+        return self.y + self.h
+
+    @property
+    def plain_value(self) -> str:
+        value = self.value.replace("<br>", " ").replace("<br/>", " ")
+        value = TAG_RE.sub(" ", value)
+        return " ".join(html.unescape(value).split())
+
     def expanded(self, pad: float) -> "Box":
         return Box(
             self.cell_id,
@@ -51,6 +76,29 @@ class Box:
             self.value,
             self.style,
         )
+
+
+@dataclass
+class GraphPage:
+    name: str
+    model: ET.Element
+
+
+def plain_text(value: str | None) -> str:
+    if not value:
+        return ""
+    value = value.replace("<br>", " ").replace("<br/>", " ")
+    value = TAG_RE.sub(" ", value)
+    return " ".join(html.unescape(value).split())
+
+
+def boxes_overlap(a: Box, b: Box, pad: float = 0.0) -> bool:
+    return not (
+        a.right <= b.x - pad
+        or a.x >= b.right + pad
+        or a.bottom <= b.y - pad
+        or a.y >= b.bottom + pad
+    )
 
 
 def is_background_container(box: Box) -> bool:
@@ -67,6 +115,16 @@ def is_small_internal_glyph(box: Box) -> bool:
     return box.w <= 30 and box.h <= 30 and not box.value.strip()
 
 
+def is_large_layout_boundary(box: Box) -> bool:
+    return (
+        not box.value.strip()
+        and box.w >= 80
+        and box.h >= 50
+        and "shape=" not in box.style
+        and ("rounded=1" in box.style or "strokeColor=" in box.style)
+    )
+
+
 def belongs_to_endpoint(box_id: str, source: str | None, target: str | None) -> bool:
     return any(endpoint and box_id.startswith(f"{endpoint}-") for endpoint in (source, target))
 
@@ -79,6 +137,8 @@ def is_glyph_primitive(box: Box) -> bool:
     if box.value.strip():
         return False
     if is_background_container(box):
+        return False
+    if is_large_layout_boundary(box):
         return False
     style = box.style
     return any(
@@ -110,6 +170,38 @@ def collinear(a: tuple[float, float], b: tuple[float, float], c: tuple[float, fl
     return (math.isclose(a[0], b[0]) and math.isclose(b[0], c[0])) or (
         math.isclose(a[1], b[1]) and math.isclose(b[1], c[1])
     )
+
+
+def decode_drawio_payload(payload: str) -> str:
+    data = base64.b64decode(payload)
+    try:
+        inflated = zlib.decompress(data, -15)
+    except zlib.error:
+        inflated = zlib.decompress(data)
+    return urllib.parse.unquote(inflated.decode("utf-8"))
+
+
+def load_graph_pages(path: Path) -> tuple[ET.Element, list[GraphPage]]:
+    root = ET.parse(path).getroot()
+    direct_models = root.findall(".//mxGraphModel")
+    if direct_models:
+        return root, [
+            GraphPage(model.get("pageName", f"page-{index + 1}"), model)
+            for index, model in enumerate(direct_models)
+        ]
+
+    pages: list[GraphPage] = []
+    for index, diagram in enumerate(root.findall(".//diagram")):
+        payload = (diagram.text or "").strip()
+        if not payload:
+            continue
+        try:
+            decoded = ET.fromstring(decode_drawio_payload(payload))
+        except Exception:  # noqa: BLE001
+            continue
+        if decoded.tag == "mxGraphModel":
+            pages.append(GraphPage(diagram.get("name", f"page-{index + 1}"), decoded))
+    return root, pages
 
 
 def direct_route_is_clear(
@@ -155,29 +247,30 @@ def attr_float(node: ET.Element, name: str, default: float = 0.0) -> float:
     return float(value)
 
 
-def parse(path: Path) -> tuple[ET.Element, dict[str, Box], list[ET.Element]]:
-    root = ET.parse(path).getroot()
+def parse(path: Path) -> tuple[ET.Element, list[GraphPage], dict[str, Box], list[ET.Element]]:
+    root, pages = load_graph_pages(path)
     boxes: dict[str, Box] = {}
     edges: list[ET.Element] = []
 
-    for cell in root.findall(".//mxCell"):
-        if cell.get("vertex") == "1":
-            geo = cell.find("mxGeometry")
-            if geo is None:
-                continue
-            boxes[cell.get("id", "")] = Box(
-                cell.get("id", ""),
-                attr_float(geo, "x"),
-                attr_float(geo, "y"),
-                attr_float(geo, "width"),
-                attr_float(geo, "height"),
-                cell.get("value", ""),
-                cell.get("style", ""),
-            )
-        elif cell.get("edge") == "1":
-            edges.append(cell)
+    for page in pages:
+        for cell in page.model.findall(".//mxCell"):
+            if cell.get("vertex") == "1":
+                geo = cell.find("mxGeometry")
+                if geo is None:
+                    continue
+                boxes[cell.get("id", "")] = Box(
+                    cell.get("id", ""),
+                    attr_float(geo, "x"),
+                    attr_float(geo, "y"),
+                    attr_float(geo, "width"),
+                    attr_float(geo, "height"),
+                    cell.get("value", ""),
+                    cell.get("style", ""),
+                )
+            elif cell.get("edge") == "1":
+                edges.append(cell)
 
-    return root, boxes, edges
+    return root, pages, boxes, edges
 
 
 def segment_intersects_box(
@@ -238,16 +331,15 @@ def main() -> int:
     warnings: list[str] = []
 
     try:
-        root, boxes, edges = parse(args.drawio)
+        root, pages, boxes, edges = parse(args.drawio)
     except Exception as exc:  # noqa: BLE001
         print(f"ERROR XML parse failed: {exc}")
         return 2
 
-    models = root.findall(".//mxGraphModel")
-    if not models:
+    if not pages:
         errors.append("No mxGraphModel found")
     else:
-        model = models[0]
+        model = pages[0].model
         if any(FORMULA_RE.search(box.value) for box in boxes.values()) and model.get("math") != "1":
             errors.append('Formula-like labels found but mxGraphModel math!="1"')
 
@@ -260,6 +352,55 @@ def main() -> int:
             if value and value % args.grid != 0:
                 warnings.append(f"{box.cell_id} {name}={value:g} is off {args.grid}px grid")
 
+    for page in pages:
+        page_width = attr_float(page.model, "pageWidth")
+        page_height = attr_float(page.model, "pageHeight")
+        if not page_width or not page_height:
+            continue
+        for box in boxes.values():
+            if box.x < 0 or box.y < 0 or box.right > page_width or box.bottom > page_height:
+                warnings.append(
+                    f"{box.cell_id} extends beyond page bounds {page_width:g}x{page_height:g}"
+                )
+
+    for box in boxes.values():
+        label = box.plain_value
+        if not label:
+            continue
+        if is_background_container(box):
+            continue
+        limit = MAX_TEXT_LABEL_CHARS if is_text_label(box) else MAX_NODE_LABEL_CHARS
+        if len(label) > limit:
+            warnings.append(
+                f"{box.cell_id} label has {len(label)} characters; move prose to caption or split the node"
+            )
+
+    for box in boxes.values():
+        style = box.style
+        if "shape=image" not in style:
+            continue
+        style_parts = style.split(";")
+        if any(part.startswith("base64,") for part in style_parts):
+            warnings.append(
+                f"{box.cell_id} contains a stale base64 style fragment; remove it and use one URL-encoded image field"
+            )
+        if RAW_SVG_BASE64_RE.search(style):
+            warnings.append(
+                f"{box.cell_id} uses raw data:image/svg+xml;base64 in a draw.io style; "
+                "the semicolon splits the style value, so use URL-encoded data:image/svg+xml, SVG instead"
+            )
+        image_fields = [part[6:] for part in style_parts if part.startswith("image=")]
+        if not image_fields:
+            warnings.append(f"{box.cell_id} is an image shape without an image= style field")
+            continue
+        image_value = image_fields[0]
+        if image_value.startswith("data:image/svg+xml,"):
+            svg_payload = urllib.parse.unquote(image_value.split(",", 1)[1])
+            try:
+                ET.fromstring(svg_payload.lstrip("\ufeff"))
+            except ET.ParseError as exc:
+                warnings.append(f"{box.cell_id} has an SVG data URI that does not parse as XML: {exc}")
+
     text_boxes = [box for box in boxes.values() if is_text_label(box)]
     glyph_boxes = [box for box in boxes.values() if is_glyph_primitive(box)]
     for text_box in text_boxes:
@@ -268,19 +409,21 @@ def main() -> int:
                 continue
             if text_box.cell_id.startswith(glyph_box.cell_id) or glyph_box.cell_id.startswith(text_box.cell_id):
                 continue
-            if segment_intersects_box(
-                (text_box.x, text_box.cy),
-                (text_box.x + text_box.w, text_box.cy),
-                glyph_box.expanded(args.padding),
-            ) or segment_intersects_box(
-                (text_box.cx, text_box.y),
-                (text_box.cx, text_box.y + text_box.h),
-                glyph_box.expanded(args.padding),
-            ):
+            if boxes_overlap(text_box, glyph_box, args.padding):
                 warnings.append(
                     f"{text_box.cell_id} text overlaps or touches glyph primitive {glyph_box.cell_id}"
                 )
                 break
+
+    text_like_boxes = [
+        box
+        for box in boxes.values()
+        if box.plain_value and not is_background_container(box) and box.w >= 40 and box.h >= 20
+    ]
+    if len(text_like_boxes) >= 8 and len(glyph_boxes) < 4:
+        warnings.append(
+            "Diagram is mostly text-bearing nodes with few visual glyph primitives; consider semantic draw.io glyphs"
+        )
 
     bar_boxes = [box for box in glyph_boxes if "-bar-" in box.cell_id or box.cell_id.startswith("bar-")]
     if bar_boxes:
@@ -316,6 +459,11 @@ def main() -> int:
             errors.append(f"{edge_id} missing or invalid target {target!r}")
 
         waypoints = explicit_waypoints(edge)
+        edge_label = plain_text(edge.get("value", ""))
+        if edge_label and (len(waypoints) > 0 or len(edge_label) > MAX_EDGE_LABEL_CHARS):
+            warnings.append(
+                f"{edge_id} has an edge label; long or routed labels are safer as separate text cells"
+            )
         if len(waypoints) > 3:
             warnings.append(
                 f"{edge_id} has {len(waypoints)} explicit waypoints; simplify the route or document the obstacle"

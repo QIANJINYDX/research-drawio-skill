@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Input medical image",
+    "bbox": [
+      30,
+      145,
+      260,
+      320
+    ]
+  },
+  {
+    "name": "Encoder pathway",
+    "bbox": [
+      345,
+      65,
+      320,
+      650
+    ]
+  },
+  {
+    "name": "Bottleneck",
+    "bbox": [
+      700,
+      660,
+      190,
+      160
+    ]
+  },
+  {
+    "name": "Decoder pathway",
+    "bbox": [
+      900,
+      65,
+      480,
+      660
+    ]
+  },
+  {
+    "name": "Skip connections",
+    "bbox": [
+      500,
+      170,
+      720,
+      500
+    ]
+  },
+  {
+    "name": "Mask output",
+    "bbox": [
+      1490,
+      80,
+      230,
+      260
+    ]
+  },
+  {
+    "name": "Overlay output",
+    "bbox": [
+      1455,
+      380,
+      295,
+      290
+    ]
+  },
+  {
+    "name": "Metrics panel",
+    "bbox": [
+      1370,
+      695,
+      390,
+      140
+    ]
+  }
+]

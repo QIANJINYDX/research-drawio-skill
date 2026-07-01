@@ -1,0 +1,66 @@
+{
+  "reference_size": [
+    1693,
+    929
+  ],
+  "candidate_size": [
+    1645,
+    802
+  ],
+  "reference_content_bbox": [
+    29,
+    35,
+    1683,
+    840
+  ],
+  "candidate_content_bbox": [
+    0,
+    0,
+    1645,
+    799
+  ],
+  "reference_content_size": [
+    1654,
+    805
+  ],
+  "candidate_content_size": [
+    1645,
+    799
+  ],
+  "bbox_aspect_delta": 0.004165144318596603,
+  "content_area_delta": 0.01285421376373482,
+  "canvas_width_delta": 0.02835203780271707,
+  "canvas_height_delta": 0.13670613562970937,
+  "mae": 17.624134063720703,
+  "rmse": 52.122662754854055,
+  "ssim": 0.758235546480535,
+  "foreground_iou": 0.767767061345043,
+  "edge_iou": 0.07638605725865243,
+  "worst_tile_mae": 105.09305572509766,
+  "worst_region": {
+    "name": "Real digits",
+    "x0": 1056,
+    "y0": 10,
+    "x1": 1261,
+    "y1": 245,
+    "mae": 89.26829528808594,
+    "rmse": 138.80639338211336,
+    "ssim": 0.1805732260348919,
+    "foreground_iou": 0.5950177183053895,
+    "edge_iou": 0.052291801162040026
+  },
+  "mode": "strict",
+  "pass": false,
+  "failures": [
+    "worst_tile_mae=105.1 > 85",
+    "ssim=0.7582 < 0.78",
+    "edge_iou=0.07639 < 0.28"
+  ],
+  "reference": "E:\\Mypaper\\Skill\\research-drawio-skill\\assets\\reference-images\\gan-handwritten-digits-reference.png",
+  "candidate": "E:\\Mypaper\\Skill\\research-drawio-skill\\example\\gan-handwritten-digits\\exports\\gan-handwritten-digits.png",
+  "artifacts": {
+    "diff_heatmap": "E:\\Mypaper\\Skill\\research-drawio-skill\\example\\gan-handwritten-digits\\comparison-final\\diff-heatmap.png",
+    "foreground_overlay": "E:\\Mypaper\\Skill\\research-drawio-skill\\example\\gan-handwritten-digits\\comparison-final\\foreground-overlay.png",
+    "side_by_side": "E:\\Mypaper\\Skill\\research-drawio-skill\\example\\gan-handwritten-digits\\comparison-final\\side-by-side.png"
+  }
+}

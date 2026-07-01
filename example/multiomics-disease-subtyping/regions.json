@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Multi-omics data",
+    "bbox": [
+      0,
+      90,
+      430,
+      760
+    ]
+  },
+  {
+    "name": "Preprocessing and feature extraction",
+    "bbox": [
+      450,
+      100,
+      270,
+      740
+    ]
+  },
+  {
+    "name": "Integration model",
+    "bbox": [
+      780,
+      290,
+      300,
+      340
+    ]
+  },
+  {
+    "name": "Latent representation",
+    "bbox": [
+      1128,
+      230,
+      300,
+      490
+    ]
+  },
+  {
+    "name": "Clinical outputs",
+    "bbox": [
+      1470,
+      110,
+      250,
+      720
+    ]
+  }
+]

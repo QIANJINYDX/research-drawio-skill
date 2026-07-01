@@ -16,6 +16,11 @@ Use a composite glyph when the answer is yes. Build it from draw.io primitives
 such as rectangles, ellipses, cylinders, lines, curves, tiled cells, and simple
 connectors. Keep the glyph editable and grouped.
 
+If a dedicated SVG has already been inserted for the same entity, treat that SVG
+as the entity glyph and skip the primitive reconstruction unless the user asks
+for a hybrid editable version. Do not show both an SVG icon and a self-drawn
+primitive glyph for the same concept by default.
+
 ## When to Use Composite Glyphs
 
 | Scientific entity | Composite glyph idea |
@@ -44,6 +49,8 @@ procedural and a labeled process node is clearer.
   target.
 - Put the label outside the glyph: below, above, or to the right. Leave at least
   6-10 px of padding between label text and glyph primitives.
+- After replacing a primitive glyph with an SVG, move the label and module bounds
+  to reclaim the old primitive-glyph area instead of leaving empty space.
 - Do not place ordinary text on top of primitives. The only exceptions are
   intentional symbolic marks such as base letters, channel names, or compact
   panel labels placed in reserved blank space.
@@ -214,5 +221,7 @@ as the connector target.
 - Text labels overlapping bars, bases, cells, matrix tiles, network nodes, or
   other glyph primitives.
 - Raster images pasted into an otherwise editable draw.io figure.
+- SVG image cells and duplicated draw.io primitive glyphs representing the same
+  concept side by side without a stated comparison purpose.
 - Composite glyphs with so many primitives that the figure becomes hard to edit.
 - External arrows attached to a random internal base, bar, dot, or tile.

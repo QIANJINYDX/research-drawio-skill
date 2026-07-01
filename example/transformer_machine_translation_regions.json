@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Source sentence tokens",
+    "bbox": [
+      35,
+      35,
+      275,
+      390
+    ]
+  },
+  {
+    "name": "Embedding and positional encoding",
+    "bbox": [
+      335,
+      35,
+      250,
+      555
+    ]
+  },
+  {
+    "name": "Encoder stack",
+    "bbox": [
+      625,
+      115,
+      240,
+      395
+    ]
+  },
+  {
+    "name": "Encoder self-attention heatmap",
+    "bbox": [
+      585,
+      555,
+      350,
+      215
+    ]
+  },
+  {
+    "name": "Encoder memory",
+    "bbox": [
+      888,
+      298,
+      126,
+      170
+    ]
+  },
+  {
+    "name": "Decoder stack",
+    "bbox": [
+      1060,
+      85,
+      260,
+      430
+    ]
+  },
+  {
+    "name": "Decoder attention heatmaps",
+    "bbox": [
+      955,
+      565,
+      530,
+      230
+    ]
+  },
+  {
+    "name": "Output probabilities and target tokens",
+    "bbox": [
+      1370,
+      120,
+      310,
+      455
+    ]
+  }
+]

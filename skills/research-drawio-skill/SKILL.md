@@ -49,6 +49,8 @@ authoring any formula labels.
 If the diagram contains biological structures, charts, tensors, model modules,
 or other visual entities, load `references/composite-elements.md` before drawing
 those entities.
+If the diagram is traced from a GPT/imagegen/raster reference and close visual
+matching matters, load `references/strict-visual-comparison.md` before final QA.
 
 ### 2. Establish the diagram contract before authoring
 
@@ -144,6 +146,8 @@ Use the `references.on_demand` table in `manifest.yaml`.
 | `references/layout-and-routing.md` | Need grid alignment, connector routing, collision avoidance, or dense model diagrams |
 | `references/math-typesetting.md` | Need formulas, symbols, MathJax, or draw.io mathematical typesetting |
 | `references/drawio-authoring.md` | Need to create or edit `.drawio`/mxGraph XML directly |
+| `references/export-preview.md` | Need to export PNG/SVG/PDF previews, verify draw.io Desktop CLI, or run visual preview checks |
+| `references/strict-visual-comparison.md` | Need to compare exported draw.io PNG against a GPT/imagegen/raster reference or diagnose mismatch regions |
 | `references/qa-contract.md` | Before final delivery, export, reviewer-facing audit, or journal submission |
 
 ## Operating Rules
@@ -158,6 +162,9 @@ Use the `references.on_demand` table in `manifest.yaml`.
   should be a grouped visual glyph made from draw.io primitives.
 - Build composite glyphs from simple editable shapes, not raster icons. Group
   their child elements, use stable IDs, and keep a short label near the group.
+- If a dedicated SVG has already been inserted for the same scientific object,
+  treat that SVG as the visual glyph and do not also draw a duplicate primitive
+  glyph unless the user explicitly asks for a hybrid editable reconstruction.
 - Keep labels outside glyph interiors unless the label is an intentional symbol
   such as A/C/G/T on a base or a channel mark. Text must not cover primitive
   shapes.
@@ -169,9 +176,22 @@ Use the `references.on_demand` table in `manifest.yaml`.
   in the graph model and use `\(...\)` or `$$...$$` delimiters.
 - Use restrained journal style: white background, clean typography, subtle
   module grouping, consistent arrows, and low-saturation color families.
+- Reclaim whitespace after replacing primitive glyphs with SVGs: recenter the
+  SVG, move labels closer with safe padding, shrink stale placeholder regions,
+  and reroute connectors with the fewest bends that remain valid.
 - Make text editable and readable at final print size. Avoid rasterized labels,
   decorative shadows, gradients, and clip-art-like icons.
 - Run `scripts/qa_drawio.py` on generated uncompressed `.drawio` files when
   Python is available, then fix all reported layout or source-integrity issues.
+- For final or visually sensitive figures, export PNG/SVG previews with
+  `scripts/export_drawio_preview.py`, inspect the preview, and iterate until
+  inserted SVGs, formulas, labels, connectors, and canvas crop render correctly.
+- For traced reference figures, run `scripts/compare_drawio_reference.py`
+  against the exported PNG and use the diff overlays and worst-tile report to
+  drive another edit pass before delivery.
+- For close GPT/imagegen/raster tracing, run at least three strict
+  export/compare/fix iterations and require a final strict-comparison pass
+  before calling the figure complete. Failed strict metrics are not acceptable
+  merely because the redraw is editable, vectorized, or formula-cleaned.
 - Keep a private working trail private. Do not expose private paths, filenames,
   internal template names, or provenance unless the user explicitly asks.

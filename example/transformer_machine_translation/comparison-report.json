@@ -1,0 +1,67 @@
+{
+  "reference_size": [
+    1693,
+    929
+  ],
+  "candidate_size": [
+    1682,
+    869
+  ],
+  "reference_content_bbox": [
+    24,
+    15,
+    1689,
+    914
+  ],
+  "candidate_content_bbox": [
+    0,
+    0,
+    1682,
+    869
+  ],
+  "reference_content_size": [
+    1665,
+    899
+  ],
+  "candidate_content_size": [
+    1682,
+    869
+  ],
+  "bbox_aspect_delta": 0.08350027072658395,
+  "content_area_delta": 0.023500920275113822,
+  "canvas_width_delta": 0.006497341996455995,
+  "canvas_height_delta": 0.06458557588805167,
+  "mae": 16.640756607055664,
+  "rmse": 45.2199188903864,
+  "ssim": 0.675766298524509,
+  "foreground_iou": 0.2997425426372242,
+  "edge_iou": 0.04078179521116593,
+  "worst_tile_mae": 66.4713363647461,
+  "worst_region": {
+    "name": "Encoder self-attention heatmap",
+    "x0": 561,
+    "y0": 540,
+    "x1": 911,
+    "y1": 755,
+    "mae": 30.853750228881836,
+    "rmse": 60.683018307739935,
+    "ssim": 0.4615260224099501,
+    "foreground_iou": 0.34329759525107517,
+    "edge_iou": 0.04503392967304133
+  },
+  "mode": "strict",
+  "pass": false,
+  "failures": [
+    "bbox_aspect_delta=0.0835 > 0.08",
+    "ssim=0.6758 < 0.78",
+    "foreground_iou=0.2997 < 0.62",
+    "edge_iou=0.04078 < 0.28"
+  ],
+  "reference": "E:\\Mypaper\\Skill\\research-drawio-skill\\output\\transformer_machine_translation_reference.png",
+  "candidate": "E:\\Mypaper\\Skill\\research-drawio-skill\\output\\exports\\transformer_machine_translation.png",
+  "artifacts": {
+    "diff_heatmap": "E:\\Mypaper\\Skill\\research-drawio-skill\\comparison-reports\\transformer_machine_translation\\diff-heatmap.png",
+    "foreground_overlay": "E:\\Mypaper\\Skill\\research-drawio-skill\\comparison-reports\\transformer_machine_translation\\foreground-overlay.png",
+    "side_by_side": "E:\\Mypaper\\Skill\\research-drawio-skill\\comparison-reports\\transformer_machine_translation\\side-by-side.png"
+  }
+}

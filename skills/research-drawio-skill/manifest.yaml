@@ -1,5 +1,5 @@
 name: research-drawio-skill
-version: 0.3.0
+version: 0.3.1
 description: >
   Declarative manifest for a draw.io-first scientific flowchart skill. SKILL.md
   loads the compact core contract and default stance for every job. Deeper
@@ -40,8 +40,16 @@ references:
       path: references/drawio-authoring.md
     - condition: final delivery, export check, reviewer-facing audit, journal submission, or visual QA
       path: references/qa-contract.md
+    - condition: export PNG/SVG/PDF previews, verify draw.io Desktop CLI, or run visual preview checks after editing .drawio
+      path: references/export-preview.md
+    - condition: compare a draw.io export against a raster/GPT/imagegen reference, enforce close tracing fidelity, create visual diff overlays, or diagnose mismatch regions
+      path: references/strict-visual-comparison.md
 
 scripts:
   qa:
     - path: scripts/qa_drawio.py
       use_when: generated or edited an uncompressed .drawio file and Python is available
+    - path: scripts/export_drawio_preview.py
+      use_when: need exported PNG/SVG/PDF preview from draw.io Desktop CLI for visual QA or consistency loops
+    - path: scripts/compare_drawio_reference.py
+      use_when: need quantitative comparison between a raster reference and exported draw.io PNG

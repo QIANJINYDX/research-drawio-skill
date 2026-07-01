@@ -1,0 +1,36 @@
+name: add-svg
+version: 0.1.2
+description: >
+  Manifest for an SVG acquisition and draw.io integration skill. The first
+  action is always a blocking user source gate: network search or self-designed
+  SVG. Deeper references are loaded only after the user selects the source mode.
+
+always_load:
+  - static/core/contract.md
+  - static/core/stance.md
+
+axes:
+  source_mode:
+    detect: |
+      BLOCKING GATE. Before any SVG work, ask the user: "SVG 来源选择：网络搜索，还是自行绘制？" and stop.
+      Continue only after the user chooses network search or self-designed SVG.
+    values:
+      network: references/network-svg-search.md
+      self_design: references/self-design-svg.md
+    multi: false
+
+references:
+  on_demand:
+    - condition: user chooses network search, wants online SVG candidates, or asks to collect multiple SVG options
+      path: references/network-svg-search.md
+    - condition: user chooses self-designed SVG, no suitable online SVG is found, or original vector fallback is needed
+      path: references/self-design-svg.md
+    - condition: inserting, encoding, positioning, or editing SVG inside .drawio / mxGraph XML
+      path: references/drawio-svg-integration.md
+    - condition: final delivery, candidate handoff, source/license audit, export check, or reviewer-facing SVG QA
+      path: references/svg-qa-contract.md
+
+scripts:
+  helpers:
+    - path: scripts/svg_data_uri.py
+      use_when: convert local SVG file to a draw.io-compatible data URI or image-cell style value

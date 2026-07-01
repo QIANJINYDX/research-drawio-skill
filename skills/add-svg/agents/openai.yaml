@@ -1,0 +1,6 @@
+interface:
+  display_name: "Add SVG"
+  short_description: "Add SVG assets to draw.io research figures"
+  default_prompt: "Use $add-svg to add SVG elements to an editable draw.io research diagram."
+policy:
+  allow_implicit_invocation: true

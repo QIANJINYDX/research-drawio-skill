@@ -24,6 +24,9 @@ Composite elements:
   entity:
   visual glyph:
   primitives:
+  existing SVG substitute:
+  duplicate primitive removal:
+  compact reflow:
   grouping:
   semantic encoding:
 Panel/page map:
@@ -66,6 +69,8 @@ Reviewer risk:
 - Decide which scientific entities should become editable composite glyphs
   rather than plain text boxes. Use glyphs for concrete structures, data
   patterns, charts, biological entities, model modules, and instruments.
+- If an SVG is already inserted for a concrete entity, count it as the entity's
+  glyph and plan which redundant primitive cells should be removed or skipped.
 - Keep formula cells separate from busy connector regions. Scientific equations
   should sit in reserved whitespace or a dedicated formula strip.
 - If the user provides a manuscript paragraph, derive the node map from the
@@ -104,6 +109,9 @@ should validate or quantify the flowchart, not repeat the same information.
   object, data structure, chart, biological system, or model architecture.
 - Compose glyphs from editable draw.io primitives: rectangles, ellipses,
   cylinders, lines, curves, tiled cells, and connectors.
+- When an inserted SVG represents the same entity, do not repeat that entity as
+  a second primitive glyph unless the user asks for a side-by-side comparison or
+  hybrid editable reconstruction.
 - Group child primitives under a clear parent cell or stable ID prefix.
 - Keep text outside or below the glyph when possible. The glyph should carry
   visual meaning; the label should name it.
@@ -114,6 +122,8 @@ should validate or quantify the flowchart, not repeat the same information.
 - Use chart-like glyphs only when the underlying node is quantitative or
   comparative. If no metric exists, use a structural glyph instead.
 - Keep glyphs on the same grid and reserve connector-free padding around them.
+- After deleting duplicate glyphs, reduce stale whitespace by shrinking modules,
+  tightening columns, and using direct connectors where the route is clear.
 
 ## Reviewer-Risk Prompts
 
@@ -128,6 +138,8 @@ Ask what a skeptical reviewer would challenge:
   too abstract?
 - Are composite glyphs editable and built from draw.io primitives rather than
   raster images?
+- If SVGs were inserted, are duplicate primitive glyphs for the same object
+  removed and is the reclaimed space actually compacted?
 - Do chart-like glyphs represent an actual metric, comparison, or data pattern
   rather than arbitrary decorative bars?
 - Are labels separated from glyph primitives with enough whitespace?

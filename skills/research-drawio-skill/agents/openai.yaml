@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research Draw.io"
+  short_description: "Publication-style scientific flowcharts"
+  default_prompt: "Use $research-drawio-skill to create an editable paper-style draw.io workflow diagram."
+policy:
+  allow_implicit_invocation: true
+

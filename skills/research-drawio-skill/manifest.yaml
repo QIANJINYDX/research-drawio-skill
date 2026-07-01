@@ -1,0 +1,47 @@
+name: research-drawio-skill
+version: 0.3.0
+description: >
+  Declarative manifest for a draw.io-first scientific flowchart skill. SKILL.md
+  loads the compact core contract and default stance for every job. Deeper
+  references are loaded only when the task needs archetype selection, visual
+  styling, semantic composite elements, layout/routing, formula typesetting,
+  direct .drawio/mxGraph authoring, or final QA.
+
+always_load:
+  - static/core/contract.md
+  - static/core/stance.md
+
+axes:
+  artifact:
+    detect: |
+      Use diagrams.net/draw.io .drawio as the editable source by default. If the
+      user provides an existing .drawio file, edit it in place or create a new
+      version while preserving the original unless asked to overwrite. If the
+      user asks only for SVG/PDF/PNG, still keep an editable .drawio source when
+      possible. Do not switch to Mermaid, PowerPoint, Illustrator, or freehand
+      SVG unless the user explicitly asks.
+    values:
+      drawio: references/drawio-authoring.md
+    multi: false
+
+references:
+  on_demand:
+    - condition: choose, combine, or explain scientific flowchart archetypes
+      path: references/archetypes.md
+    - condition: typography, colors, shapes, arrows, spacing, panel labels, and Nature-style polish
+      path: references/style-guide.md
+    - condition: editable grouped glyphs, primitive-shape illustrations, DNA/RNA chains, bar-chart miniatures, matrices, heatmaps, neural networks, cells, tissues, model blocks, or avoiding all-text diagrams
+      path: references/composite-elements.md
+    - condition: grid layout, module alignment, connector corridors, edge routing, collision avoidance, or dense model diagrams
+      path: references/layout-and-routing.md
+    - condition: mathematical formulas, symbols, equations, MathJax, LaTeX, AsciiMath, or draw.io math rendering
+      path: references/math-typesetting.md
+    - condition: create, edit, inspect, or repair .drawio / mxGraph XML directly
+      path: references/drawio-authoring.md
+    - condition: final delivery, export check, reviewer-facing audit, journal submission, or visual QA
+      path: references/qa-contract.md
+
+scripts:
+  qa:
+    - path: scripts/qa_drawio.py
+      use_when: generated or edited an uncompressed .drawio file and Python is available

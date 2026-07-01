@@ -1,5 +1,7 @@
 # research-drawio-skill
 
+**Language:** English | [中文](README.zh-CN.md)
+
 `research-drawio-skill` is a Codex skill for creating publication-style
 scientific flowcharts and schematic workflows in diagrams.net / draw.io.
 
@@ -34,6 +36,7 @@ over-routed connector paths with unnecessary bends.
 ```text
 .
 |-- README.md
+|-- README.zh-CN.md
 |-- .gitignore
 |-- example/
 |   `-- attention-mechanism-nature.drawio

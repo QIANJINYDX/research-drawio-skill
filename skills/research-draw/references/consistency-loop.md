@@ -28,7 +28,7 @@ Draw.io file:
 Exported preview:
 Geometry mismatches:
 Semantic mismatches:
-Asset mismatches:
+SVG/asset mismatches:
 Text/formula mismatches:
 Connector/routing mismatches:
 Strict comparison metrics:
@@ -77,8 +77,10 @@ Compare:
 - chart/probability encoding
 - whether complex objects are recognizable
 
-If a complex object is not recognizable when built from primitives, do not keep
-tweaking the primitive sketch. Use `complex-asset-sourcing.md` and `add-svg`.
+If a complex object appears, do not keep tweaking a draw.io primitive sketch.
+Use `complex-asset-sourcing.md` to author or select a dedicated SVG glyph,
+render it at target size, and compare it against the reference crop before
+inserting it into draw.io.
 
 Then export and run strict comparison again. Fix the largest local regions
 first; do not make global style changes while major object placement or
@@ -114,6 +116,7 @@ Fix:
 - duplicate primitive glyphs after SVG insertion
 - missing, blank, clipped, or visually incorrect exported previews
 - inserted SVGs that appear in XML but fail to render in exported PNG/SVG
+- complex SVG glyphs whose rendered crop comparison still fails
 - strict comparison failures in `mae`, `ssim`, `foreground_iou`, `edge_iou`,
   content bbox, or worst mismatch tiles
 
@@ -136,6 +139,59 @@ comparison still fails and a local edit is available. Prioritize:
 Only stop with `not passed` when further progress is blocked by missing tools,
 missing source assets, impossible target conflict, or explicit user direction.
 
+## Final Text Completeness Audit
+
+Run this after the final strict pixel comparison pass or after a forced
+`not passed` stop. Pixel similarity is not enough for text: generated reference
+text may be wrong, and a visually close export can still omit, truncate, or
+silently alter labels.
+
+Create and check two inventories:
+
+```text
+Source/intended text inventory:
+  panel letters:
+  stage/module labels:
+  legends:
+  axis and scale labels:
+  annotations/callouts:
+  formulas:
+  abbreviations and units:
+  intentionally omitted generated pseudo-text:
+
+Draw.io/export text inventory:
+  matching draw.io text cell:
+  exported preview visible:
+  exact wording:
+  line breaks/truncation:
+  spelling/case:
+  formula rendering:
+  status: present / fixed / intentionally omitted / missing
+```
+
+Use all available sources, in priority order:
+
+1. User-provided required text, manuscript terms, figure legend, or prompt.
+2. Trace notes and intended module mapping.
+3. Editable draw.io text cells from the XML.
+4. Exported PNG/SVG preview by visual inspection.
+5. OCR only as an optional assist, not as the sole authority.
+
+Fix before delivery:
+
+- missing required labels, legends, panel letters, axis text, units, or formulas
+- truncated text caused by too-small cells or line breaks
+- spelling, capitalization, or abbreviation drift
+- duplicated labels after SVG or layout replacement
+- generated pseudo-text that should have been removed
+- formulas that exist in XML but do not render correctly in the preview
+- labels that are present in XML but hidden, clipped, overlapped, or off-canvas
+
+Do not mark the text audit as passed until every required text item is either
+present and visible or explicitly listed as intentionally omitted. If any text
+item remains uncertain, report it as a remaining risk rather than assuming it is
+correct.
+
 ## Acceptance Criteria
 
 Deliver only when:
@@ -146,8 +202,12 @@ Deliver only when:
   export/compare/fix iterations have been run and recorded
 - strict reference comparison has passed; if it has not passed, the work must be
   reported as not yet passing rather than complete
+- the final text completeness audit has passed, or unresolved missing/uncertain
+  text is explicitly reported as a remaining risk
 - major reference regions are present and close in relative geometry
-- complex objects are either recognizable primitives or selected assets
+- complex objects are represented by dedicated SVG glyphs with source notes and
+  per-glyph comparison records, unless the user explicitly accepted a
+  primitive-only fallback
 - all generated/raster labels have been rebuilt as editable text
 - no reference bitmap is required for the final diagram structure
 - trace notes include iteration count and remaining mismatches

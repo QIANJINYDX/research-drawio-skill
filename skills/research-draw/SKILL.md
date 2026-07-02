@@ -6,12 +6,14 @@ description: >-
   editable diagrams.net/draw.io file using research-drawio-skill. Use for
   Nature-style scientific illustrations, graphical abstracts, model or mechanism
   schematics, biomedical workflows, AI architecture figures, and paper-style
-  visual drafts that should become editable .drawio source. Supports optional
-  online SVG/vector asset search for complex objects and enforces a minimum
+  visual drafts that should become editable .drawio source. For complex
+  recognizable elements, author or select dedicated SVG glyphs and compare
+  rendered SVGs against reference crops before inserting them, instead of
+  assembling those elements from draw.io primitives. Enforces a minimum
   three-round strict pixel-level export/compare/fix loop for close
   raster-to-draw.io tracing tasks. Use with imagegen, draw.io, diagrams.net,
   scientific illustration, graphical abstract, paper schematic, figure tracing,
-  and drawio redraw requests.
+  SVG glyph tracing, and drawio redraw requests.
 ---
 
 # Research Draw
@@ -25,7 +27,10 @@ geometry guide, not the final source of truth.
 1. Use `imagegen` for the reference-image stage only when no suitable raster
    reference already exists.
 2. Use `research-drawio-skill` for the draw.io tracing stage.
-3. Do not embed the generated bitmap as the final diagram body unless the user
+3. During the draw.io stage, use `research-drawio-skill` for layout, XML,
+   export, and QA, but override its primitive-glyph default for complex
+   recognizable elements with this skill's SVG glyph workflow.
+4. Do not embed the generated bitmap as the final diagram body unless the user
    explicitly asks for a raster-backed figure.
 
 ## Routing Protocol
@@ -39,16 +44,20 @@ geometry guide, not the final source of truth.
    `.drawio`.
 5. If complex real-world elements are present, such as animals, organs,
    instruments, cells with detailed morphology, or domain icons, read
-   `references/complex-asset-sourcing.md`.
+   `references/complex-asset-sourcing.md`. Complex elements must use the SVG
+   glyph workflow there, not draw.io primitive assembly.
 6. Before final delivery, read `references/consistency-loop.md` and run the
    loop. For GPT/imagegen/raster tracing where close imitation matters, this is
    a minimum three-round strict pixel-level export/compare/fix loop.
-7. For GPT/imagegen/raster tracing where close imitation matters, make the
+7. After the final strict pixel comparison, run the final text completeness
+   audit in `references/consistency-loop.md` before claiming delivery.
+8. For GPT/imagegen/raster tracing where close imitation matters, make the
    draw.io stage load `research-drawio-skill` strict visual comparison rules.
-8. If formulas appear, make the draw.io stage load the math reference from
+9. If formulas appear, make the draw.io stage load the math reference from
    `research-drawio-skill`.
-9. If SVG icons or online assets are needed during the draw.io stage, use the
-   local `add-svg` skill and follow its source gate.
+10. If online SVG assets are needed during the draw.io stage, use the local
+   `add-svg` skill and follow its source gate. If self-designed SVG glyphs are
+   sufficient, author them directly under the complex asset workflow.
 
 ## Operating Rules
 
@@ -61,12 +70,19 @@ geometry guide, not the final source of truth.
 - When a PNG/JPG/WebP reference exists, trace geometry before redesigning:
   preserve relative object positions, sizes, gutters, and visual density unless
   the user asks for redesign.
-- Use draw.io primitives for the final network blocks, arrows, matrices,
-  biological objects, charts, and labels.
-- Do not hand-draw complex recognizable objects when the primitive version would
-  reduce fidelity. Search for licensed SVG/vector assets through `add-svg`
-  network mode, or create a self-designed fallback only when search is
-  unavailable, unsuitable, or the user rejects online assets.
+- Use draw.io primitives for abstract structure: containers, network blocks,
+  arrows, simple matrices, simple charts, and editable labels.
+- Do not assemble complex recognizable objects from draw.io primitives by
+  default. Animals, organs, detailed cells, instruments, anatomy, protein
+  cartoons, and similarly silhouette-sensitive objects should become dedicated
+  SVG glyphs.
+- For every complex SVG glyph, render it at the target size and compare it
+  against the corresponding reference crop before insertion. Iterate the SVG
+  until the silhouette, scale, and color family are close enough, or record the
+  remaining strict-comparison failure.
+- Use draw.io primitives for a complex object only when the object is actually
+  simple/abstract, no reference crop exists, or the user explicitly prioritizes
+  full draw.io editability over visual fidelity.
 - Preserve scientific correctness, but do not use editability, vectorization,
   formula rebuilding, or scientific-cleanup language to excuse avoidable visual
   mismatch. If strict comparison fails, keep editing or report the task as not
@@ -76,6 +92,10 @@ geometry guide, not the final source of truth.
 - When the goal is close imitation of a GPT/imagegen reference, export the
   draw.io PNG and run quantitative comparison in at least three iterations. Use
   the worst mismatch tiles and diff overlays to drive each additional edit pass.
+- After pixel comparison passes or stops, perform a text completeness audit:
+  compare intended labels, legends, panel letters, formulas, axis text, and
+  annotations against the draw.io text cells and exported preview. Fix missing,
+  truncated, misspelled, duplicated, or pseudo-text remnants before delivery.
 - Do not claim completion with wording such as "strict pixel comparison did not
   pass because this is an editable redraw" or "metrics are documented in trace
   notes." A failed strict comparison remains a failed QA gate unless the user
@@ -91,10 +111,16 @@ editable source: .drawio file
 trace notes: mapping from reference regions to draw.io modules, including
   approximate reference coordinates for major regions
 asset notes: searched/selected assets, license notes, and self-designed fallbacks
+svg glyphs: paths to authored/selected SVGs for complex objects, with insertion
+  bbox and data-URI encoding notes
+glyph comparison: per-complex-element reference crop, rendered SVG PNG,
+  metrics/diff paths, pass/fail, and remaining mismatches
 consistency loop: at least three iteration records for close tracing, fixes
   made, remaining mismatches
 strict comparison: per-iteration metrics, pass/fail, diff overlay paths, worst
   mismatch tiles, and final status as passed or not passed
+text completeness audit: source/intended text inventory, draw.io text inventory,
+  missing or changed labels/formulas, fixes made, final pass/fail
 QA: draw.io validation result and remaining risks
 ```
 

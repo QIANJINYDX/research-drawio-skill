@@ -1,4 +1,4 @@
 interface:
   display_name: "Research Draw"
-  short_description: "Image reference to editable draw.io"
-  default_prompt: "Use $research-draw to create or trace a scientific reference image into editable draw.io, with consistency-loop QA."
+  short_description: "Trace images to draw.io with SVG glyphs"
+  default_prompt: "Use $research-draw to create or trace a scientific reference image into editable draw.io, using SVG glyphs for complex elements and consistency-loop QA."

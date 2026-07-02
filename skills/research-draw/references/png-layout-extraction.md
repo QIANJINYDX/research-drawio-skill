@@ -6,7 +6,8 @@ figure and asks for a faithful draw.io redraw.
 ## Purpose
 
 Avoid loose semantic redesign. First extract the reference figure's geometry,
-then redraw it as editable draw.io primitives.
+then redraw it as editable draw.io structure plus dedicated SVG glyphs for
+complex recognizable elements.
 
 ## Required Layout Pass
 
@@ -32,8 +33,10 @@ Repeated motifs:
   color family:
 Complex elements:
   object:
-  primitive suitability:
-  asset search needed:
+  reference crop bbox:
+  complex SVG needed:
+  SVG source mode:
+  glyph comparison plan:
 Trace fidelity decisions:
   preserve:
   simplify:
@@ -86,8 +89,10 @@ After drawing, compare against the PNG:
 - Do feature-map stacks have similar count, angle/offset, and color family?
 - Do residual bypasses wrap around the residual unit rather than appear as
   generic arrows?
-- Are complex recognizable objects faithful enough, or should they be replaced
-  with searched SVG/vector assets?
+- Are complex recognizable objects represented by dedicated SVG glyphs rather
+  than many draw.io primitives?
+- Were those SVG glyphs rendered at target size and compared against the
+  corresponding reference crops?
 - Did any simplification change the scientific meaning?
 
 If the answer to any item is no, revise before final delivery.

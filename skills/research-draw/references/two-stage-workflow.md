@@ -19,7 +19,8 @@ Labels/formulas:
 Style constraints:
 QA risks:
 Consistency loop:
-Complex asset policy:
+Text completeness audit:
+Complex SVG policy:
 ```
 
 ## Stage 1: Raster Reference
@@ -49,13 +50,18 @@ Use `research-drawio-skill` to rebuild the figure as `.drawio`:
   labels.
 - Preserve the reference image's relative geometry before making style
   improvements.
-- Redraw scientific objects with draw.io primitives or approved SVG assets.
+- Redraw abstract scientific structure with draw.io primitives.
+- Redraw complex recognizable objects as dedicated SVG glyphs, then insert the
+  rendered/validated SVG into draw.io.
 - Recreate labels manually as editable text.
 - Recreate formulas using draw.io MathJax.
 - Simplify decorative details that do not carry scientific meaning.
-- Use online SVG/vector assets for complex recognizable objects when primitive
-  sketches would be visibly inferior.
+- Use self-designed SVG glyphs by default for complex recognizable objects.
+  Use online SVG/vector assets only when requested or when they are clearly
+  legal, style-compatible, and more faithful than a self-designed glyph.
 - Run the consistency loop before final delivery.
+- After strict pixel comparison, run a final text completeness audit against
+  the intended labels/formulas, not only against visual similarity metrics.
 
 ## Trace Fidelity
 
@@ -87,7 +93,11 @@ The task is complete only when:
 - the `.drawio` source exists
 - the final draw.io diagram does not depend on the bitmap for its structure
 - text and formulas are editable
+- intended labels, legends, panel letters, axis text, annotations, and formulas
+  have been audited for omission, truncation, spelling drift, duplication, and
+  pseudo-text remnants after pixel comparison
 - connectors do not overlap labels or glyphs
-- complex objects have asset-search notes or acceptable primitive fidelity
+- complex objects have SVG glyph notes and pixel-comparison records, or an
+  explicit user-approved reason to keep a primitive-only version
 - the consistency loop has been run and documented
 - local draw.io QA has been run when Python is available

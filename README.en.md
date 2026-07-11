@@ -1,4 +1,9 @@
-<h1><img src="assets/research-logo.png" alt="research-drawio-skill logo" width="56" align="middle"> research-drawio-skill</h1>
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="middle"><img src="assets/research-logo.png" alt="research-drawio-skill logo" width="56"></td>
+    <td valign="middle"><h1>research-drawio-skill</h1></td>
+  </tr>
+</table>
 
 **Language:** [中文](README.md) | English
 

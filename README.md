@@ -1,125 +1,114 @@
 # research-drawio-skill
 
-**Language:** English | [中文](README.zh-CN.md)
+<p align="center">
+  <img src="assets/research-logo.png" alt="research-drawio-skill Logo" width="220">
+</p>
 
-`research-drawio-skill` is a Codex skill suite for creating publication-style
-scientific schematics in diagrams.net / draw.io.
+**语言：** 中文 | [English](README.en.md)
 
-The recommended two-stage entry point is `research-draw`: it first creates or
-uses a polished raster reference image, then traces that reference into an
-editable `.drawio` diagram with `research-drawio-skill`. Use
-`research-drawio-skill` directly when you already know the diagram structure or
-only need to create, revise, audit, export, or QA a draw.io source file.
+`research-drawio-skill` 是一个面向 Codex 的 skill 套件，用于在 diagrams.net /
+draw.io 中创建论文发表风格的科研流程图和机制示意图。
 
-The skill is designed for research-paper figures such as method pipelines,
-experimental workflows, cohort flow diagrams, mechanism schematics,
-multi-omics/data-integration diagrams, model architecture diagrams, and graphical
-abstracts. Its design philosophy follows the `nature-figure` style of thinking:
-define the scientific message first, build the evidence and topology next,
-engineer the layout and connectors, then apply restrained journal-ready visual
-style and export QA.
+推荐的两阶段入口是 `research-draw`：它先创建或使用一张高质量科研插图参考图，
+再调用 `research-drawio-skill` 将参考图临摹为可编辑的 `.drawio` 文件。当你已经
+明确图的结构，或只需要直接创建、修改、审核、导出、QA draw.io 源文件时，可以
+直接使用 `research-drawio-skill`。
 
-The current version also enforces layout engineering and visual construction:
-grid-first alignment, protected formula zones, connector corridors, semantic
-composite elements built from draw.io primitives, and a lightweight `.drawio` QA
-script that catches common source-level mistakes before visual export.
+它适合科研论文中的方法流程、实验设计、队列/样本流程、机制图、
+多组学/数据整合流程、模型结构图和图形摘要。它的设计哲学借鉴
+`nature-figure`：先定义科学信息和证据逻辑，再设计拓扑结构、布局和连接线，
+最后进行克制的期刊风格润色与导出 QA。
 
-Recent design rules also prevent three common failure modes: labels covering
-glyph primitives, decorative chart glyphs without scientific meaning, and
-over-routed connector paths with unnecessary bends.
+当前版本特别强调版式工程和图形构建：网格对齐、公式保护区、连接线通道、
+由 draw.io 原生图元组成的语义复合元素，以及一个轻量级 `.drawio` QA 脚本，
+用于在导出前捕捉常见源文件问题。
 
-Two companion skills are included: `research-draw` for image-generation-to-
-draw.io tracing, and `add-svg` for supplementing draw.io diagrams with SVG
-scientific assets. `add-svg` forces a source choice before every run: collect
-multiple online SVG candidates for later user selection, or create restrained
-original SVGs when network assets are unsuitable or unavailable.
+最近的规则还专门防止三类常见问题：文字遮挡图形元素、没有科学含义的装饰性图表、
+以及连接线出现不必要的多次折弯。
 
-## What It Helps With
+仓库中还包含两个配套 skill：`research-draw` 用于“生成参考图再临摹为 draw.io”，
+`add-svg` 用于为 draw.io 科研图补充 SVG 科学图元。`add-svg` 要求每次执行前先
+选择来源：从网络收集多个 SVG 候选并留给用户后续选择，或在网络素材不合适、
+找不到时自行绘制克制的原创 SVG。
 
-- Editable `.drawio` scientific workflow diagrams
-- Two-stage scientific figure creation: generated reference image, then
-  editable draw.io tracing
-- Nature-style method and experimental design flowcharts
-- Computational pipeline and model architecture schematics
-- Cohort/study flow diagrams with inclusion and exclusion logic
-- Mechanism and graphical abstract diagrams for manuscripts
-- SVG/PDF-ready publication exports with QA-oriented guidance
+## 能做什么
 
-## Examples
+- 创建可编辑的 `.drawio` 科研流程图
+- 两阶段科研图创建：先生成参考图，再临摹为可编辑 draw.io
+- 绘制 Nature 风格的方法流程图和实验设计图
+- 绘制计算管线和模型结构示意图
+- 绘制包含纳入/排除逻辑的队列或研究流程图
+- 绘制论文机制图和图形摘要
+- 生成适合 SVG/PDF 导出的论文图，并提供 QA 检查规则
 
-### GAN Handwritten Digit Generation
+## 示例
 
-`example/gan-handwritten-digits/gan-handwritten-digits.drawio` demonstrates the
-two-stage `research-draw` workflow: create a raster scientific reference image,
-redraw it as editable draw.io primitives, export the draw.io preview, then run
-strict visual comparison for multiple iterations.
+### GAN 手写数字生成示例
 
-Input used in Codex:
+`example/gan-handwritten-digits/gan-handwritten-digits.drawio` 展示了
+`research-draw` 的两阶段工作流：先创建科研插图风格的栅格参考图，再临摹为
+可编辑的 draw.io 图元，随后导出预览并进行多轮严格视觉对比。
+
+Codex 输入：
 
 ```text
 使用$research-draw 帮我绘制一个使用GAN进行手写数字生成的图，科研风格
 ```
 
-Reference image:
+输入参考图：
 
 ![GAN handwritten digit reference](assets/reference-images/gan-handwritten-digits-reference.png)
 
-Skill execution flow:
+中间 skill 执行流程：
 
-1. `research-draw` established the scientific message, topology, visual
-   vocabulary, output contract, and consistency-loop requirement.
-2. `imagegen` produced the raster reference image used only as a composition and
-   geometry guide.
-3. `research-drawio-skill` rebuilt the figure as editable draw.io modules:
-   latent-noise table, generator layers, generated and real digit tiles,
-   discriminator layers, probability mini-chart, and dashed loss-feedback route.
-4. `qa_drawio.py` checked the `.drawio` source. Result:
-   `OK XML parsed; vertices=99 edges=16 warnings=0`.
-5. `export_drawio_preview.py` exported PNG and SVG previews with draw.io Desktop
-   CLI.
-6. `compare_drawio_reference.py` ran strict raster comparison for three recorded
-   iterations, producing metrics, tile mismatch CSVs, region mismatch CSVs,
-   heatmaps, foreground overlays, and side-by-side images.
+1. `research-draw` 先建立科学信息、拓扑结构、视觉词汇、输出契约和一致性循环要求。
+2. `imagegen` 生成栅格参考图；该图只作为构图和几何参考，不嵌入最终 draw.io。
+3. `research-drawio-skill` 将参考图重建为可编辑 draw.io 模块：latent-noise 表格、
+   generator 层、generated/real digit tiles、discriminator 层、probability mini-chart
+   和虚线 loss-feedback 路由。
+4. `qa_drawio.py` 检查 `.drawio` 源文件。结果：
+   `OK XML parsed; vertices=99 edges=16 warnings=0`。
+5. `export_drawio_preview.py` 通过 draw.io Desktop CLI 导出 PNG 和 SVG 预览。
+6. `compare_drawio_reference.py` 进行了三轮严格栅格对比，输出 metrics、tile mismatch
+   CSV、region mismatch CSV、heatmap、foreground overlay 和 side-by-side 图。
 
-Final editable output preview:
+最终可编辑输出预览：
 
 ![GAN handwritten digit draw.io output](example/gan-handwritten-digits/exports/gan-handwritten-digits.png)
 
-Strict comparison evidence:
+严格对比证据：
 
 ![GAN strict comparison side by side](example/gan-handwritten-digits/comparison-final/side-by-side.png)
 
-Pixel-difference heatmap:
+像素差异热图：
 
 ![GAN strict comparison diff heatmap](example/gan-handwritten-digits/comparison-final/diff-heatmap.png)
 
-Foreground overlap audit:
+前景重叠检查：
 
 ![GAN strict comparison foreground overlay](example/gan-handwritten-digits/comparison-final/foreground-overlay.png)
 
-Final artifacts:
+最终产物：
 
-- Editable source:
+- 可编辑源文件：
   `example/gan-handwritten-digits/gan-handwritten-digits.drawio`
-- PNG preview:
+- PNG 预览：
   `example/gan-handwritten-digits/exports/gan-handwritten-digits.png`
-- SVG preview:
+- SVG 预览：
   `example/gan-handwritten-digits/exports/gan-handwritten-digits.svg`
-- Trace notes:
+- 临摹记录：
   `example/gan-handwritten-digits/trace-notes.md`
-- Strict comparison report:
+- 严格对比报告：
   `example/gan-handwritten-digits/comparison-final/comparison-report.json`
 
-Final strict-comparison status is `not passed`: the worst remaining mismatch is
-the `Real digits` region, and the final strict metrics are `mae=17.6241`,
-`ssim=0.7582`, `foreground_iou=0.7678`, `edge_iou=0.0764`, and
-`worst_tile_mae=105.0931`. The example keeps those QA artifacts visible so the
-remaining mismatch can be inspected rather than treated as a completed pixel
-match.
+最终严格对比状态为 `not passed`：剩余最大差异区域是 `Real digits`，最终指标为
+`mae=17.6241`、`ssim=0.7582`、`foreground_iou=0.7678`、`edge_iou=0.0764`、
+`worst_tile_mae=105.0931`。这个示例保留 QA 证据，用于明确展示剩余差异，而不是
+把未通过的严格像素对比包装成已经完成。
 
-## More Examples
+## 更多示例
 
-| Prompt | GPT-generated image | Pixel-difference heatmap | draw.io output |
+| 提示词 | GPT生成图 | 像素差异热图 | drawio图 |
 |---|---|---|---|
 | 使用$research-draw 帮我绘制一个使用GAN进行手写数字生成的图，科研风格 | <img src="assets/reference-images/gan-handwritten-digits-reference.png" alt="GAN reference" width="180"> | <img src="example/gan-handwritten-digits/comparison-final/diff-heatmap.png" alt="GAN diff heatmap" width="180"> | <img src="example/gan-handwritten-digits/exports/gan-handwritten-digits.png" alt="GAN draw.io output" width="180"> |
 | 使用$research-draw 帮我绘制一个使用ResNet进行猫狗图像分类的图，科研风格 | <img src="example/resnet_cat_dog_classification/resnet_cat_dog_reference.png" alt="ResNet cat dog reference" width="180"> | <img src="example/resnet_cat_dog_classification/comparison_iter3/diff-heatmap.png" alt="ResNet cat dog diff heatmap" width="180"> | <img src="example/resnet_cat_dog_classification/exports/resnet_cat_dog_classification.png" alt="ResNet cat dog draw.io output" width="180"> |
@@ -127,10 +116,9 @@ match.
 | 使用$research-draw 帮我绘制一个使用U-Net进行医学图像分割的图，科研风格 | <img src="example/unet-medical-segmentation/reference-unet-medical-segmentation.png" alt="U-Net medical segmentation reference" width="180"> | <img src="example/unet-medical-segmentation/comparison-iter5/diff-heatmap.png" alt="U-Net medical segmentation diff heatmap" width="180"> | <img src="example/unet-medical-segmentation/exports/unet-medical-segmentation.png" alt="U-Net medical segmentation draw.io output" width="180"> |
 | 使用$research-draw 帮我绘制一个使用多组学数据整合进行疾病分型的图，科研风格 | <img src="example/multiomics-disease-subtyping/multiomics-disease-subtyping-reference.png" alt="Multi-omics disease subtyping reference" width="180"> | <img src="example/multiomics-disease-subtyping/comparison-iter3/diff-heatmap.png" alt="Multi-omics disease subtyping diff heatmap" width="180"> | <img src="example/multiomics-disease-subtyping/exports/multiomics-disease-subtyping.png" alt="Multi-omics disease subtyping draw.io output" width="180"> |
 
-## Installation
+## 安装
 
-Copy the skill folders you want into your Codex skills directory. For the full
-workflow, install all three:
+将需要的 skill 文件夹复制到你的 Codex skills 目录。完整工作流建议安装三个：
 
 ```powershell
 Copy-Item -Recurse -Force `
@@ -146,106 +134,82 @@ Copy-Item -Recurse -Force `
   "$env:USERPROFILE\.codex\skills\add-svg"
 ```
 
-On macOS or Linux:
+macOS 或 Linux：
 
 ```bash
 mkdir -p ~/.codex/skills
 cp -R skills/{research-draw,research-drawio-skill,add-svg} ~/.codex/skills/
 ```
 
-## Design Philosophy
+## 设计哲学
 
-This skill treats a research flowchart as a visual argument rather than a
-decorative process map.
+这个 skill 将科研流程图视为一种“视觉论证”，而不是装饰性流程图。
 
-Every diagram starts with:
+每张图都从以下内容开始：
 
-1. A one-sentence scientific message.
-2. A diagram role, such as method overview, experimental workflow, cohort flow,
-   mechanism schematic, analytical pipeline, model architecture, or graphical
-   abstract.
-3. A topology map of nodes, modules, branches, loops, inputs, and outputs.
-4. A grid layout plan with aligned rows, columns, gutters, and connector
-   corridors.
-5. A composite-element plan that decides which scientific entities should be
-   grouped visual glyphs rather than plain text boxes.
-6. A math-label contract for formulas and symbols that need draw.io
-   mathematical typesetting.
-7. A visual vocabulary that maps colors, shapes, labels, and arrows to
-   scientific meaning.
-8. An export and reviewer-risk contract for journal-ready delivery.
+1. 一句话科学信息。
+2. 图的角色，例如方法概览、实验流程、队列流程、机制示意图、分析管线、
+   模型结构或图形摘要。
+3. 节点、模块、分支、循环、输入和输出的拓扑图。
+4. 网格布局计划，包括行、列、间距和连接线通道。
+5. 复合元素计划，决定哪些科学实体应该画成组合图元，而不是纯文字框。
+6. 公式和符号的 math-label contract，用于 draw.io 数学排版。
+7. 颜色、形状、标签和箭头所表达的科学语义。
+8. 面向期刊导出的格式和审稿风险检查。
 
-## Skill Contents
+## Skill 内容
 
-`research-draw`:
+`research-draw`：
 
-- `SKILL.md`: main trigger metadata and routing protocol for the two-stage
-  generate-then-trace workflow.
-- `agents/openai.yaml`: UI metadata and default prompt for invoking the skill.
-- `references/two-stage-workflow.md`: stage contract for reference generation,
-  draw.io tracing, and completion criteria.
-- `references/imagegen-reference-stage.md`: prompt and inspection rules for
-  generating a clean scientific reference image.
-- `references/png-layout-extraction.md`: geometry extraction rules for tracing
-  an existing raster figure.
-- `references/drawio-tracing-stage.md`: conversion rules from raster reference
-  to editable draw.io modules, glyphs, labels, formulas, and connectors.
-- `references/complex-asset-sourcing.md`: policy for online SVG/vector assets
-  or self-designed fallbacks for complex recognizable objects.
-- `references/consistency-loop.md`: iterative export, strict comparison, and
-  repair loop before delivery.
+- `SKILL.md`：两阶段“生成参考图再临摹”工作流的主要触发元数据和路由流程。
+- `agents/openai.yaml`：用于 Codex UI 的元数据和默认调用提示。
+- `references/two-stage-workflow.md`：参考图生成、draw.io 临摹和完成标准。
+- `references/imagegen-reference-stage.md`：生成干净科研参考图的 prompt 与检查规则。
+- `references/png-layout-extraction.md`：临摹已有 PNG/JPG/WebP 图时的几何提取规则。
+- `references/drawio-tracing-stage.md`：从栅格参考图转换为 draw.io 模块、图元、标签、
+  公式和连接线的规则。
+- `references/complex-asset-sourcing.md`：复杂可识别对象的在线 SVG/矢量素材或自绘兜底策略。
+- `references/consistency-loop.md`：交付前的导出、严格对比和迭代修复流程。
 
-`research-drawio-skill`:
+`research-drawio-skill`：
 
-- `SKILL.md`: main trigger metadata and routing protocol.
-- `manifest.yaml`: declares always-loaded core files and on-demand references.
-- `static/core/contract.md`: required flowchart contract before drawing.
-- `static/core/stance.md`: default scientific diagram stance and privacy rule.
-- `references/archetypes.md`: scientific flowchart archetypes and anti-patterns.
-- `references/composite-elements.md`: editable glyph recipes for bar-chart
-  miniatures, DNA/RNA chains, matrices, neural networks, cells, samples, and
-  other scientific objects, with rules against decorative charts and label
-  overlap.
-- `references/layout-and-routing.md`: grid alignment, connector corridors, edge
-  labels, collision avoidance, and minimum-bend routing rules.
-- `references/math-typesetting.md`: MathJax / draw.io formula handling.
-- `references/style-guide.md`: typography, color, shape, connector, and draw.io
-  style presets.
-- `references/drawio-authoring.md`: `.drawio` / mxGraph XML authoring guidance.
-- `references/export-preview.md`: draw.io Desktop CLI export and preview QA.
-- `references/strict-visual-comparison.md`: quantitative comparison between a
-  raster/GPT/imagegen reference and exported draw.io PNG.
-- `references/qa-contract.md`: logic, visual, source-file, and export QA checks.
-- `scripts/qa_drawio.py`: lightweight uncompressed/compressed draw.io XML, math,
-  alignment, endpoint, text/glyph overlap, label-length, canvas-bound,
-  chart-glyph semantics, bend-count, and connector-through-node QA.
-- `scripts/export_drawio_preview.py`: exports PNG/SVG/PDF previews through the
-  local diagrams.net/draw.io Desktop CLI and probes the output.
-- `scripts/compare_drawio_reference.py`: compares a draw.io PNG export against a
-  raster reference and writes metrics, mismatch tiles, and visual overlays.
+- `SKILL.md`：主要触发元数据和路由流程。
+- `manifest.yaml`：声明始终加载的核心文件和按需加载的参考文件。
+- `static/core/contract.md`：作图前必须建立的流程图契约。
+- `static/core/stance.md`：默认科研图形姿态和隐私规则。
+- `references/archetypes.md`：科研流程图类型和反模式。
+- `references/composite-elements.md`：可编辑复合图元规则，例如 mini bar chart、
+  DNA/RNA 链、矩阵、神经网络、细胞、样本等，并禁止装饰性图表和文字遮挡。
+- `references/layout-and-routing.md`：网格对齐、连接线通道、标签、避让和最小折弯规则。
+- `references/math-typesetting.md`：MathJax / draw.io 公式处理。
+- `references/style-guide.md`：字体、颜色、形状、连接线和 draw.io 样式预设。
+- `references/drawio-authoring.md`：`.drawio` / mxGraph XML 编写规则。
+- `references/export-preview.md`：draw.io Desktop CLI 导出和预览 QA。
+- `references/strict-visual-comparison.md`：栅格/GPT/imagegen 参考图与 draw.io PNG 导出的量化对比规则。
+- `references/qa-contract.md`：逻辑、视觉、源文件和导出 QA 检查。
+- `scripts/qa_drawio.py`：轻量级 QA 脚本，检查未压缩/压缩 draw.io XML、
+  数学公式、对齐、端点、文字/图元重叠、标签长度、画布越界、图表语义、
+  折线数量和连接线遮挡。
+- `scripts/export_drawio_preview.py`：通过本地 diagrams.net/draw.io Desktop CLI 导出 PNG/SVG/PDF 预览并检查输出。
+- `scripts/compare_drawio_reference.py`：将 draw.io PNG 导出与栅格参考图对比，并输出指标、错配 tile 和可视化覆盖图。
 
-`add-svg`:
+`add-svg`：
 
-- `SKILL.md`: source-gated routing protocol for adding SVG assets.
-- `manifest.yaml`: declares the mandatory source gate and mode-specific
-  references.
-- `static/core/contract.md`: SVG addition contract, including scientific role,
-  integration targets, provenance, fallback, and QA notes.
-- `static/core/stance.md`: Nature-style stance for restrained, meaningful SVG
-  additions.
-- `references/network-svg-search.md`: procedure for collecting multiple online
-  SVG candidates with source and license notes.
-- `references/self-design-svg.md`: rules for original SVG glyphs built from
-  simple vector primitives.
-- `references/drawio-svg-integration.md`: draw.io image-cell, data URI, label,
-  placement, and storage guidance.
-- `references/svg-qa-contract.md`: source, visual, draw.io, and delivery QA.
-- `scripts/svg_data_uri.py`: converts a local SVG file into a draw.io-compatible
-  data URI or image style fragment.
+- `SKILL.md`：带来源选择门槛的 SVG 补图路由流程。
+- `manifest.yaml`：声明必须先询问来源，并按网络搜索或自行绘制加载参考文件。
+- `static/core/contract.md`：SVG 补图契约，包括科学角色、插入位置、来源记录、
+  兜底方案和 QA。
+- `static/core/stance.md`：面向 Nature 风格科研图的克制、语义化 SVG 补图姿态。
+- `references/network-svg-search.md`：从网络收集多个 SVG 候选并记录来源和许可信息。
+- `references/self-design-svg.md`：用简单矢量图元自行绘制原创 SVG 的规则。
+- `references/drawio-svg-integration.md`：draw.io image cell、data URI、标签、
+  位置和候选素材存放规则。
+- `references/svg-qa-contract.md`：来源、视觉、draw.io 和交付 QA。
+- `scripts/svg_data_uri.py`：将本地 SVG 转为 draw.io 可用的 data URI 或图片样式片段。
 
-## Validation
+## 校验
 
-If you have the Codex `skill-creator` validation script available, run:
+如果你安装了 Codex `skill-creator` 的校验脚本，可以运行：
 
 ```powershell
 $env:PYTHONUTF8 = "1"
@@ -259,16 +223,15 @@ python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_valid
   "skills\add-svg"
 ```
 
-Expected result:
+期望输出：
 
 ```text
 Skill is valid!
 ```
 
-`PYTHONUTF8=1` is recommended on Windows because the skill metadata includes
-Chinese trigger phrases.
+Windows 下建议设置 `PYTHONUTF8=1`，因为 skill 元数据中包含中文触发词。
 
-To inspect a generated `.drawio` file:
+检查生成的 `.drawio` 文件：
 
 ```powershell
 python "skills\research-drawio-skill\scripts\qa_drawio.py" `
@@ -290,5 +253,4 @@ python "skills\research-drawio-skill\scripts\compare_drawio_reference.py" `
   --out-dir "example\gan-handwritten-digits\comparison-final"
 ```
 
-Warnings and strict comparison failures should be reviewed before using a
-diagram as a polished example or publication-facing export.
+在将图作为 polished example 或论文导出文件前，应检查所有 warning 和严格对比失败项。

@@ -1,6 +1,12 @@
 # research-drawio-skill
 
-**语言：** [English](README.md) | 中文
+<p align="center">
+  <img src="assets/research-logo.png" alt="research-drawio-skill Logo" width="220">
+</p>
+
+> 中文说明已设为仓库默认首页：[打开默认中文 README](README.md)。
+
+**语言：** 中文 | [English](README.en.md)
 
 `research-drawio-skill` 是一个面向 Codex 的 skill 套件，用于在 diagrams.net /
 draw.io 中创建论文发表风格的科研流程图和机制示意图。

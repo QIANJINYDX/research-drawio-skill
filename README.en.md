@@ -1,8 +1,4 @@
-# research-drawio-skill
-
-<p align="center">
-  <img src="assets/research-logo.png" alt="research-drawio-skill logo" width="220">
-</p>
+<h1><img src="assets/research-logo.png" alt="research-drawio-skill logo" width="56" align="middle"> research-drawio-skill</h1>
 
 **Language:** [中文](README.md) | English
 

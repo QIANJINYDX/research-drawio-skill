@@ -1,8 +1,4 @@
-# research-drawio-skill
-
-<p align="center">
-  <img src="assets/research-logo.png" alt="research-drawio-skill Logo" width="220">
-</p>
+<h1><img src="assets/research-logo.png" alt="research-drawio-skill Logo" width="56" align="middle"> research-drawio-skill</h1>
 
 > 中文说明已设为仓库默认首页：[打开默认中文 README](README.md)。
 

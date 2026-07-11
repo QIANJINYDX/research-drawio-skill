@@ -1,9 +1,7 @@
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td valign="middle"><img src="assets/research-logo.png" alt="research-drawio-skill Logo" width="56"></td>
-    <td valign="middle"><h1>research-drawio-skill</h1></td>
-  </tr>
-</table>
+<div align="center">
+  <img src="assets/research-logo.png" alt="research-drawio-skill Logo" width="96">
+  <h1>research-drawio-skill</h1>
+</div>
 
 > 中文说明已设为仓库默认首页：[打开默认中文 README](README.md)。
 
